@@ -47,27 +47,31 @@ import jakarta.persistence.*;
 @Entity
 public class Producto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Campo que funcionará como clave primaria de la tabla
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // El ID se generará automáticamente (autoincremental)
     private Long id;
 
+    // Campos que serán columnas en la tabla 'producto'
     private String nombre;
     private String descripcion;
     private double precio;
 
     protected Producto() {} // Constructor por defecto requerido por JPA
 
+    // Constructor público para crear objetos de tipo Producto con los campos necesarios
     public Producto(String nombre, String descripcion, double precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
     }
 
+    // Getters para acceder a los atributos (necesarios para el funcionamiento de JPA y buenas prácticas)
     public Long getId() { return id; }
     public String getNombre() { return nombre; }
     public String getDescripcion() { return descripcion; }
     public double getPrecio() { return precio; }
 
+    // Método que permite imprimir el objeto de forma legible (útil para logs o consola)
     @Override
     public String toString() {
         return String.format("Producto[id=%d, nombre='%s', precio=%.2f]",
@@ -87,7 +91,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+// Esta interfaz extiende JpaRepository para gestionar operaciones CRUD sobre la entidad Producto
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
+
+    // Método personalizado que busca productos cuyo nombre contenga un texto específico (no sensible a mayúsculas)
     List<Producto> findByNombreContaining(String nombre);
 }
 ```
@@ -101,8 +108,6 @@ Edita tu clase `InventarioApplication.java` para incluir un `CommandLineRunner` 
 ```java
 package com.bedu.inventario;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -126,12 +131,12 @@ public class InventarioApplication {
             repository.save(new Producto("Mouse gamer", "Alta precisión", 600.00));
 
             // Mostrar todos los productos
-            log.info("Productos disponibles:");
-            repository.findAll().forEach(producto -> log.info(producto.toString()));
+			System.out.println("📂 Productos disponibles:");
+			repository.findAll().forEach(System.out::println);
 
-            // Buscar por nombre parcial
-            log.info("Productos que contienen 'Lap':");
-            repository.findByNombreContaining("Lap").forEach(producto -> log.info(producto.toString()));
+			// Buscar por nombre parcial
+			System.out.println("\n🔍 Productos que contienen 'Lap':");
+			repository.findByNombreContaining("Lap").forEach(System.out::println);
         };
     }
 }
@@ -144,12 +149,12 @@ public class InventarioApplication {
 Al ejecutar el programa verás una salida similar a:
 
 ```
-Productos disponibles:
+📂 Productos disponibles:
 Producto[id=1, nombre='Laptop', precio=1200.00]
 Producto[id=2, nombre='Teclado mecánico', precio=800.00]
 Producto[id=3, nombre='Mouse gamer', precio=600.00]
 
-Productos que contienen 'Lap':
+🔍 Productos que contienen 'Lap':
 Producto[id=1, nombre='Laptop', precio=1200.00]
 ```
 
@@ -173,8 +178,18 @@ Producto[id=1, nombre='Laptop', precio=1200.00]
 - Spring Boot **detecta automáticamente** las entidades y configura el datasource si encuentra dependencias como `spring-boot-starter-data-jpa` y una base de datos embebida como H2.
 - Puedes **cambiar la base de datos** de desarrollo (por ejemplo, de H2 a MySQL) simplemente modificando tu archivo `application.properties` sin tocar el código de tus entidades.
 - Gracias a la convención de nombres, Spring Data JPA puede **generar automáticamente consultas** como `findByNombreContaining` o `findByPrecioGreaterThan`.
-- El enfoque de Spring Boot con JPA permite crear un backend **funcional y con operaciones CRUD completas sin escribir ni una línea de SQL**.
+- **JPA con Spring Boot** permite crear operaciones CRUD completas sin escribir SQL manualmente, gracias al uso de repositorios.
+- `@Bean CommandLineRunner` ejecuta código automáticamente al iniciar la app, útil para probar sin interfaz gráfica.
+- `Logger` (de SLF4J) es preferible a `System.out.println()` en aplicaciones reales, ya que permite controlar mejor los mensajes que se muestran según el nivel (info, warn, error).
 
 ---
 
-⬅️ [**Anterior**](../Readme.md) | [**Siguiente**](../Ejemplo-02/Readme.md)➡️  
+### 📘 Recursos adicionales
+
+- 🔗 [Spring Data JPA – Query Methods](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods)
+- 🔗 [POO en Java – W3Schools](https://www.w3schools.com/java/java_oop.asp)
+- 🔗 [Spring Boot: Guía oficial](https://spring.io/projects/spring-boot)
+
+---
+
+⬅️ [**Anterior**](../Readme.md) | [**Siguiente**](../Reto-01/Readme.md)➡️  

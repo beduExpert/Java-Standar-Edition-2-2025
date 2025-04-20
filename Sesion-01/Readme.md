@@ -1,7 +1,7 @@
 🏠 [**Inicio**](../Readme.md) ➡️ / 📖 `Sesión 01`
 
 <div align="center">
-    <img src="Imagenes/S01.jpg" alt="Sesion_01">
+    <img src="Imagenes/S01.png" alt="Sesion_01">
 </div>
 
 # 🎯 Objetivo
@@ -9,6 +9,14 @@
 ⚒️ Conocer las distintas interfaces que Java proporciona para interactuar con bases de datos, así como los fundamentos del uso de JPA y la creación de entidades para implementar operaciones CRUD.
 
 ---
+
+
+📘 Material del prework:  
+Antes de comenzar con los ejercicios de esta sesión, recordemos que en el material de prework hemos cubierto los fundamentos teóricos que aplicaremos hoy. A lo largo de esta sesión, pondremos en práctica estos conceptos mediante una serie de ejercicios y retos diseñados para reforzar y validar nuestro entendimiento. 
+🔥¡Vamos a comenzar!🔥
+
+---
+
 
 ## 📂 Temas de la sesión...
 
@@ -27,7 +35,7 @@ Java permite conectarse con diversas bases de datos utilizando JDBC o mediante h
 ### 📖 Configuración de base de datos y entorno de desarrollo  
 Para comenzar a trabajar con bases de datos en Java, se requiere configurar el entorno y definir las entidades que representarán las tablas.
 
-🔹 **Configuración de conexión (MySQL o MariaDB)**  
+🔹 **Configuración de conexión a base de datos embebida (H2)**  
 🔹 **Uso de Maven y dependencias para JPA/Hibernate**  
 🔹 **Configuración del archivo `application.properties`**
 
