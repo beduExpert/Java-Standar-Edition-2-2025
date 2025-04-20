@@ -184,13 +184,8 @@ SELECT * FROM categoria;
 
 ---
 
-📘 Recursos útiles:  
-🔗 [Relaciones en JPA – Baeldung](https://www.baeldung.com/jpa-joincolumn-vs-mappedby)  
-🔗 [JPA Relationships – Official Guide](https://jakarta.ee/specifications/persistence/)
 
----
-
-> 💡 **¿Y si quiero usar MySQL o MariaDB?**  
+## 💡 **¿Y si quiero usar MySQL o MariaDB?**  
 > Aunque este ejemplo usa H2 por simplicidad, puedes cambiar fácilmente a MySQL o MariaDB modificando el archivo `application.properties` y agregando el conector correspondiente al `pom.xml`. Esto se recomienda como actividad adicional fuera de clase.
 
 
@@ -212,6 +207,12 @@ Y el conector en el `pom.xml`:
     <scope>runtime</scope>
 </dependency>
 ```
+
+---
+
+📘 Recursos útiles:  
+🔗 [Relaciones en JPA – Baeldung](https://www.baeldung.com/jpa-joincolumn-vs-mappedby)  
+🔗 [JPA Relationships – Official Guide](https://jakarta.ee/specifications/persistence/)
 
 ---
 

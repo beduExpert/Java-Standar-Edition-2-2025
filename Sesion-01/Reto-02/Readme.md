@@ -1,59 +1,77 @@
-🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 01**](../Readme.md) ➡️ / ⚡ `Reto 02: Modelo de relaciones para una tienda en línea`
+🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 01**](../Readme.md) ➡️ / ⚡ `Reto 02: Productos por marca en una tienda en línea`
 
 ## 🎯 Objetivo
 
-⚒️ Aplicar relaciones entre entidades utilizando anotaciones de JPA (`@OneToMany`, `@ManyToOne`) para modelar una estructura básica de una tienda en línea, como categorías y productos. Se utilizará el mismo proyecto del Ejemplo 02.
+⚒️ Reforzar el uso de relaciones en JPA mediante una entidad nueva llamada `Marca`, relacionada con `Producto`, simulando un modelo básico de una tienda en línea. Se trabajará con relaciones `@ManyToOne`, ideal para representar que varios productos pertenecen a una marca.
 
 ---
 
 ## 📝 Instrucciones
 
 📌 **Importante:**  
-No es necesario crear un nuevo proyecto. Este reto debe resolverse usando el mismo proyecto del **Ejemplo 02**, reutilizando las clases `Producto` y `Categoria`.
+Este reto se realiza **en el mismo proyecto del Ejemplo 02**, reutilizando la entidad `Producto` y agregando una nueva entidad `Marca`.
 
 ---
 
 ### 🛠️ Tareas a realizar:
 
-1. ✍️ Asegúrate de tener la clase `Producto` con la relación `@ManyToOne` hacia `Categoria`.
+1. ✍️ Crea una nueva clase `Marca` con los siguientes atributos:
+   - `id` (clave primaria, autogenerada)
+   - `nombre` (nombre de la marca)
 
-2. ➕ Agrega en la clase `Categoria` la relación inversa `@OneToMany`:
+2. 🔁 Relaciona `Producto` con `Marca` usando `@ManyToOne`:
 
-```java
-@OneToMany(mappedBy = "categoria")
-private List<Producto> productos;
-```
+    ```java
+    @ManyToOne
+    @JoinColumn(name = "marca_id")
+    private Marca marca;
+    ```
 
-3. 🔄 Carga datos desde `CommandLineRunner`:
-   - Crea al menos **2 categorías**
-   - Asocia al menos **2 productos a cada categoría**
+3. 🔄 Agrega en `Producto`:
+   - Constructor con parámetro `Marca`
+   - Getter para `getMarca()`
 
-4. 🧪 Recorre e imprime los productos asociados a cada categoría:
+4. 🧪 Desde `CommandLineRunner`, realiza lo siguiente:
+   - Crea al menos **2 marcas**
+   - Asocia al menos **2 productos a cada marca**
+   - Muestra los productos agrupados por marca:
 
-```java
-System.out.println("📚 Productos por categoría:");
-categoriaRepo.findAll().forEach(categoria -> {
-    System.out.println("🗂️ " + categoria.getNombre() + ":");
-    categoria.getProductos().forEach(producto -> System.out.println("   - " + producto.getNombre()));
-});
-```
+   ```java
+   System.out.println("📚 Productos por marca:");
+   marcaRepo.findAll().forEach(marca -> {
+      System.out.println("🏷️ " + marca.getNombre() + ":");
+      productoRepo.findAll().stream()
+         .filter(p -> p.getMarca().getId().equals(marca.getId()))
+         .forEach(p -> System.out.println("   - " + p.getNombre()));
+   });
+   ```
 
-5. ⚙️ Asegúrate de tener los métodos `getProductos()` en `Categoria` y `getCategoria()` en `Producto`.
+5. 🧾 Asegúrate de crear un `MarcaRepository` que extienda `JpaRepository`.
+
+6. 🧾 Muestra la salida en consola con `System.out.println()`
+
+
+   Al ejecutar el programa verás una salida similar a:
+
+   ```
+   📚 Productos por marca:
+   🏷️ Apple:
+      - iPhone 15
+      - iPad Pro
+   🏷️ Samsung:
+      - Galaxy S23
+      - Smart TV
+   ```
 
 ---
 
 📘 Recursos útiles:  
-🔗 [JPA OneToMany – Baeldung](https://www.baeldung.com/jpa-one-to-many)  
-🔗 [JPA Relaciones bidireccionales – Baeldung](https://www.baeldung.com/jpa-joincolumn-vs-mappedby)
+🔗 [Spring Data JPA – Query Methods](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods)  
+🔗 [Relaciones JPA – Baeldung](https://www.baeldung.com/jpa-joincolumn-vs-mappedby)
 
 ---
 
-🧠 **Nota:**  
-Este reto refuerza el entendimiento de relaciones bidireccionales. Recuerda que `mappedBy` indica que el lado "fuerte" de la relación ya está definido en la entidad `Producto`.
-
----
-
-🏆 Si logras ver productos agrupados correctamente por categoría en la consola, ¡vas por muy buen camino!
+🏆 Si logras ver productos agrupados correctamente por marca en la consola, ¡reto completado con éxito!
 
 ---
 

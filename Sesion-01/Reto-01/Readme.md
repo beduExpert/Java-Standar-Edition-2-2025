@@ -41,7 +41,27 @@
    - Imprime productos con precio entre `400` y `1000`
    - Imprime productos cuyo nombre comience con `"m"` o `"M"`
 
-5. 🧾 Muestra la salida en consola con `System.out.println()` o usando `Logger`
+5. 🧾 Muestra la salida en consola con `System.out.println()`
+
+
+   Al ejecutar el programa verás una salida similar a:
+
+   ```
+   📦 Productos con precio mayor a 500:
+   Producto[id=1, nombre='Laptop Lenovo', precio=12500.00]
+   Producto[id=3, nombre='Teclado Mecánico', precio=950.00]
+   Producto[id=4, nombre='Monitor', precio=3200.00]
+
+   🔍 Productos que contienen 'lap':
+   Producto[id=1, nombre='Laptop Lenovo', precio=12500.00]
+
+   🎯 Productos con precio entre 400 y 1000:
+   Producto[id=3, nombre='Teclado Mecánico', precio=950.00]
+
+   📘 Productos cuyo nombre empieza con 'm':
+   Producto[id=2, nombre='Mouse Logitech', precio=350.00]
+   Producto[id=4, nombre='Monitor', precio=3200.00]
+   ```
 
 ---
 

@@ -116,8 +116,6 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class InventarioApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(InventarioApplication.class);
-
     public static void main(String[] args) {
         SpringApplication.run(InventarioApplication.class, args);
     }
@@ -180,7 +178,6 @@ Producto[id=1, nombre='Laptop', precio=1200.00]
 - Gracias a la convención de nombres, Spring Data JPA puede **generar automáticamente consultas** como `findByNombreContaining` o `findByPrecioGreaterThan`.
 - **JPA con Spring Boot** permite crear operaciones CRUD completas sin escribir SQL manualmente, gracias al uso de repositorios.
 - `@Bean CommandLineRunner` ejecuta código automáticamente al iniciar la app, útil para probar sin interfaz gráfica.
-- `Logger` (de SLF4J) es preferible a `System.out.println()` en aplicaciones reales, ya que permite controlar mejor los mensajes que se muestran según el nivel (info, warn, error).
 
 ---
 

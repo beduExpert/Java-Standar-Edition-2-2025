@@ -40,7 +40,7 @@ Para comenzar a trabajar con bases de datos en Java, se requiere configurar el e
 🔹 **Configuración del archivo `application.properties`**
 
 📜 **[Ejemplo 02: Configuración de conexión y creación de tablas](Ejemplo-02/Readme.md)**  
-🔥 **[Reto 02: Modelo de relaciones para una tienda en línea](Reto-02/Readme.md)**  
+🔥 **[Reto 02: Productos por marca en una tienda en línea](Reto-02/Readme.md)**  
 
 ---
 
