@@ -1,7 +1,7 @@
-🏠 [**Inicio**](../Readme.md) ➡️ / 📖 `Sesión 01`
+🏠 [**Inicio**](../Readme.md) ➡️ / 📖 `Sesión 09`
 
 <div align="center">
-    <img src="Imagenes/S01.png" alt="Sesion_01">
+    <img src="Imagenes/S09.jpg" alt="Sesion_09">
 </div>
 
 # 🎯 Objetivo
@@ -55,4 +55,4 @@ Integra una base de datos a una aplicación Java web usando JPA con Spring Boot 
 
 ---
 
-⬅️ [**Anterior**](../Readme.md) | [**Siguiente**](../Sesion-02/Readme.md)➡️
+⬅️ [**Anterior**](../Readme.md) | [**Siguiente**](../Sesion-10/Readme.md)➡️
