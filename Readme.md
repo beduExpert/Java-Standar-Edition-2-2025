@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="Sesion-01/Imagenes/Bedu.png" alt="Sesion_01">
+    <img src="Sesion-09/Imagenes/Bedu.png" alt="Sesion_01">
 </div>
 
 # 🚀 Curso de Java Standard Edition 2
