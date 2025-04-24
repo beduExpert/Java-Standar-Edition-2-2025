@@ -5,7 +5,7 @@
 </div>
 
 ##### **PREWORK**
-#### **🟧 Sesión 10**
+#### **🟧 Sesión 02**
 #### **Multihilos y procesos concurrentes**
 
 
@@ -354,4 +354,4 @@ Has conocido tanto la forma clásica (`Thread`, `Runnable`) como las modernas (`
 
 ---
 
-⬅️ [**Anterior**](../../Readme.md) | [**Siguiente**](../../Sesion-03/Prework/Readme.md)➡️
+⬅️ [**Anterior**](../../Sesion-01/Prework/Readme.md) | [**Siguiente**](../../Sesion-03/Prework/Readme.md)➡️
