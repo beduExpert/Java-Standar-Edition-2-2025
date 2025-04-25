@@ -210,6 +210,16 @@ Y el conector en el `pom.xml`:
 
 ---
 
+## 📝 En resumen
+
+- Configuramos la **conexión a una base de datos** embebida (H2) en un proyecto **Spring Boot** usando **`application.properties`**.
+- Creamos una relación **`@ManyToOne`** entre **`Producto`** y **`Categoria`**, modelando un escenario típico de **tienda en línea** donde varios productos comparten la misma categoría.
+- Probamos la conexión y las entidades usando **`CommandLineRunner`**, cargando datos y verificando la **persistencia**.
+- También validamos el esquema en la **consola H2**, asegurándonos que las tablas y las relaciones se crearon correctamente.
+- Esta estructura facilita la **escalabilidad** del sistema, permitiendo agregar nuevas entidades o cambiar la base de datos (por ejemplo, de H2 a **MySQL** o **MariaDB**) sin modificar el código fuente de las entidades.
+
+---
+
 📘 Recursos útiles:  
 🔗 [Relaciones en JPA – Baeldung](https://www.baeldung.com/jpa-joincolumn-vs-mappedby)  
 🔗 [JPA Relationships – Official Guide](https://jakarta.ee/specifications/persistence/)

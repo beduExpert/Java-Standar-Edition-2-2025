@@ -100,6 +100,15 @@ Ejecutando Tarea 2 - Iteración 2 - Hilo: Thread-1
 
 ---
 
+## 📝 En resumen
+
+- Aprendimos a **crear y ejecutar hilos** en Java usando la interfaz **`Runnable`** y la clase **`Thread`**.
+- Cada hilo ejecuta su tarea de forma **independiente**, pero pueden **intercalarse en la ejecución** dependiendo del planificador del sistema operativo.
+- **`start()`** inicia el hilo de manera **concurrente**, mientras que **`run()`** ejecuta la tarea **secuencialmente** en el hilo actual.
+- Este enfoque es útil para **entender los conceptos básicos de concurrencia**, antes de avanzar hacia herramientas más modernas como **`ExecutorService`** o **`CompletableFuture`**.
+
+---
+
 ## 💡 ¿Sabías que...?
 
 - Java trata cada hilo como una unidad de ejecución independiente, lo que permite realizar múltiples tareas al mismo tiempo (concurrencia).

@@ -187,6 +187,16 @@ Asegúrate de que la app esté corriendo en `http://localhost:8080`.
 
 ---
 
+## 📝 En resumen
+
+- Implementamos una **API REST básica** en Java usando **Spring Boot** y **JPA**, siguiendo una **arquitectura en capas** (controladores, servicios, repositorios, modelos).
+- **`ProductoController`** expone los **endpoints HTTP** (`GET`, `POST`) para interactuar con los datos.
+- **`ProductoService`** encapsula la **lógica de negocio**, mientras que **`ProductoRepository`** maneja la **persistencia** mediante **Spring Data JPA**.
+- Probamos la API con **Postman**, simulando la creación y consulta de productos en la base de datos **H2 embebida**.
+- Esta estructura permite **extender fácilmente la aplicación**, añadiendo nuevas funcionalidades, relaciones entre entidades o integraciones externas.
+
+---
+
 📘 Recursos útiles:  
 🔗 [Spring Boot REST API – Baeldung](https://www.baeldung.com/spring-boot-building-a-restful-web-service)  
 🔗 [Postman – Guía oficial](https://learning.postman.com/docs/getting-started/introduction/)

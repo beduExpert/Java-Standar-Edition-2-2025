@@ -170,6 +170,16 @@ Producto[id=1, nombre='Laptop', precio=1200.00]
 
 ---
 
+## 📝 En resumen
+
+- Con **JPA (Java Persistence API)** y **Spring Data JPA** creamos fácilmente **entidades** (como `Producto`) que se **mapean a tablas** en una base de datos.
+- **`JpaRepository`** nos proporciona **operaciones CRUD básicas** (guardar, buscar, eliminar) sin necesidad de escribir SQL.
+- Con **consultas derivadas** como `findByNombreContaining`, generamos búsquedas personalizadas de manera **automática y declarativa**.
+- Integramos un **repositorio** en la clase principal con `CommandLineRunner` para **insertar datos** y **consultarlos** al iniciar la aplicación.
+- Esta es la **base de cualquier aplicación backend** que interactúe con bases de datos relacionales usando **Spring Boot y JPA**.
+
+---
+
 ### 💡 ¿Sabías que...?
 
 - **JPA** no es una implementación en sí, sino una **especificación**. Las implementaciones más conocidas son **Hibernate**, **EclipseLink** y **TopLink**.

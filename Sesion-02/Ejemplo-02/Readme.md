@@ -91,6 +91,20 @@ public class ProcesadorDePedidos {
 
 ---
 
+## 📝 En resumen
+
+- **`ExecutorService`** permite **gestionar un conjunto de hilos reutilizables** para procesar múltiples tareas en paralelo, sin necesidad de crear y manejar hilos manualmente.
+- **`Callable`** y **`Future`** nos permiten **ejecutar tareas concurrentes que devuelven resultados** y manejan excepciones.
+- **El flujo de trabajo típico** incluye:  
+  1. Definir las tareas (`Callable`).  
+  2. Enviarlas al **pool de hilos** con `submit()`.  
+  3. Obtener los resultados con `Future.get()`.  
+  4. Cerrar el pool con `shutdown()`.
+- Este enfoque es ideal para **procesar pedidos o tareas en paralelo**, mejorando el rendimiento en **aplicaciones concurrentes**.
+
+
+---
+
 ## 💡 ¿Sabías que...?
 
 - Usar `ExecutorService` es más eficiente que crear hilos manualmente, especialmente en aplicaciones con muchas tareas pequeñas.

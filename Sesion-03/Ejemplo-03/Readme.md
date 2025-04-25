@@ -164,6 +164,16 @@ public class ConfirmacionPedidosGlobal {
 
 ---
 
+## 📝 En resumen
+
+- Usamos **`flatMap()`** para **desanidar estructuras** complejas (listas dentro de listas), procesando todos los pedidos de varias sucursales como un **flujo continuo**.
+- Combinamos **`filter()`**, **`map()`** y **`Optional`** para **filtrar entregas a domicilio**, **eliminar pedidos sin teléfono** y **crear mensajes personalizados**.
+- Esta composición funcional permite **trabajar con colecciones anidadas de forma limpia y fluida**, evitando ciclos anidados y estructuras imperativas.
+- **`flatMap()`** es especialmente útil en contextos como **pedidos globales**, **consultas a múltiples fuentes de datos** o **procesos con estructuras jerárquicas**.
+
+
+---
+
 ### 💡 ¿Sabías que...?
 
 - `flatMap` es esencial para **trabajar con listas anidadas** o estructuras complejas, permitiendo procesarlas como un solo flujo continuo.

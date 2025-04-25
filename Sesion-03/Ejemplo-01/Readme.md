@@ -143,6 +143,17 @@ Luis (Edad: 70, Observación: true)
 
 ---
 
+## 📝 En resumen
+
+- **Programación funcional** en Java permite **escribir código más expresivo y seguro**, evitando estructuras tradicionales como `if/else` o ciclos explícitos.
+- Usamos **`Predicate`** para **filtrar datos** (ej. pacientes mayores de 60 y en observación) de manera **reutilizable** y **componible**.
+- Usamos **`Function`** para **transformar objetos** en otros formatos, como **resúmenes en texto**.
+- **Streams** actúan como un **vehículo** para aplicar estas funciones sobre **colecciones de datos**, permitiendo encadenar operaciones como **`filter()`**, **`map()`** y **`forEach()`** de forma fluida y legible.
+- Esta aproximación mejora la **legibilidad**, **reduce errores** y facilita **pruebas unitarias**.
+
+
+---
+
 ### 💡 ¿Sabías que...?
 
 - Las **funciones puras** no modifican variables externas ni dependen de estados mutables.

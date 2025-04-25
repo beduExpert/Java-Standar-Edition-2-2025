@@ -155,6 +155,18 @@ Astronauta-2 completó el retiro. Saldo restante: $100
 
 ---
 
+## 📝 En resumen
+
+- Las **condiciones de carrera** ocurren cuando varios **hilos acceden y modifican recursos compartidos sin control**, lo que puede provocar inconsistencias en los datos.
+- Para prevenirlas, usamos **mecanismos de sincronización** como:
+  - **`synchronized`** → Bloqueo implícito más simple.
+  - **`ReentrantLock`** → Bloqueo explícito que permite **mayor control** (como tiempo de espera, desbloqueo manual).
+- Ambos enfoques garantizan que **solo un hilo a la vez acceda a la sección crítica**, pero **ReentrantLock** es más flexible en sistemas complejos.
+- Este ejemplo muestra cómo proteger operaciones sensibles (como **retiros de una cuenta bancaria**) para asegurar **consistencia y seguridad** en entornos multihilo.
+
+
+---
+
 ## 💡 ¿Sabías que...?
 
 - Usar `synchronized` es más simple, pero `ReentrantLock` da mayor control (por ejemplo, tiempo de espera, interrupción).

@@ -131,6 +131,16 @@ Marta (Edad: 45)
 
 ---
 
+## 📝 En resumen
+
+- **`Stream API`** te permite procesar colecciones de forma **fluida y declarativa**, evitando ciclos manuales.
+- Usamos **`map()`** para **transformar datos**, por ejemplo, de `Paciente` a `Optional<String>` (correo electrónico).
+- **`filter()`** nos permite **seleccionar solo los elementos que cumplen ciertas condiciones**, como pacientes en observación o correos disponibles.
+- **`Optional`** ayuda a **manejar valores nulos de forma segura**, eliminando la necesidad de verificaciones explícitas con `null`.
+- Este enfoque **simplifica la lógica**, mejora la **legibilidad del código** y **reduce errores** como el temido `NullPointerException`.
+
+---
+
 ### 💡 ¿Sabías que...?
 
 - Puedes encadenar operaciones intermedias (`map`, `filter`) para transformar y filtrar colecciones sin modificar la colección original.
