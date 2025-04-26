@@ -53,4 +53,4 @@ Abordaremos técnicas para el **manejo de backpressure**, el encadenamiento de o
 
 ---
 
-⬅️ [**Anterior**](../Sesion-04/Readme.md) | [**Siguiente**](../Sesion-06/Ejemplo-01/Readme.md)➡️  
+⬅️ [**Anterior**](../Sesion-04/Readme.md) | [**Siguiente**](../Sesion-06/Readme.md)➡️  

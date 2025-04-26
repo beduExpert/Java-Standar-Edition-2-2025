@@ -415,7 +415,9 @@ La próxima vez que pienses en colecciones finitas o en procesos bloqueantes, pr
 
 > *¿Y si los datos nunca se detuvieran? ¿Estoy listo para procesarlos mientras fluyen?*
 
-Si la respuesta es sí, entonces estás en el camino de la programación reactiva. 🚀
+Si la respuesta es sí, entonces estás en el camino de la programación reactiva. 🚀  
+
+
 ---
 
 ⬅️ [**Anterior**](../../Sesion-04/Prework/Readme.md) | [**Siguiente**](../../Sesion-06/Prework/Readme.md)➡️  
