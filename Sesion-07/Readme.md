@@ -35,7 +35,7 @@ Hemos explorado **diferencias entre monolitos y microservicios**, entendiendo lo
 🔹 Controladores y servicios
 
 📜 **[Ejemplo 02: API REST básica con Spring Boot](Ejemplo-02/Readme.md)**  
-🔥 **[Reto 01: Crear un microservicio de inventario](Reto-01/Readme.md)**  
+🔥 **[Reto 01: Expandiendo la API REST de empleados en RRHH](Reto-01/Readme.md)**  
 
 ---
 
