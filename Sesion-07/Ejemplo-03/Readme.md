@@ -244,4 +244,4 @@ Este ejemplo mostró cómo dos **microservicios independientes** se comunican me
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-02/Readme.md) | [**Siguiente**](../Reto-01/Readme.md)➡️  
+⬅️ [**Anterior**](../Ejemplo-02/Readme.md) | [**Siguiente**](../../Sesion-08/Readme.md)➡️  
