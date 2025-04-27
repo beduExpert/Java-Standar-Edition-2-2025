@@ -81,4 +81,4 @@ Estas mejoras harán la API más completa y flexible, facilitando la **gestión 
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-02/Readme.md) | [**Siguiente**](../../Sesion-08/Readme.md)➡️  
+⬅️ [**Anterior**](../Ejemplo-02/Readme.md) | [**Siguiente**](../Ejemplo-03/Readme.md)➡️  
