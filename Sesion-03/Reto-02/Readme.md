@@ -75,4 +75,4 @@ Sucursal Norte: Seguimiento a paciente con comentario: "La atención fue buena, 
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-03/Readme.md) | [**Siguiente**](../Sesion-12/Readme.md)➡️  
+⬅️ [**Anterior**](../Ejemplo-03/Readme.md) | [**Siguiente**](../../Sesion-04/Readme.md)➡️  

@@ -160,12 +160,4 @@ public class ManejoAvanzadoReactor {
 
 ---
 
-📘 **Recursos adicionales**:
-
-- 🔗 [Backpressure en Reactor – Project Reactor Docs](https://projectreactor.io/docs/core/release/reference/#backpressure)  
-- 🔗 [Programación reactiva avanzada en Java – DZone](https://dzone.com/articles/reactive-programming-with-java-9-flow-api)  
-- 🔗 [Project Reactor – Official Documentation](https://projectreactor.io/docs/core/release/reference/)
-
----
-
 ⬅️ [**Anterior**](../Reto-01/Readme.md) | [**Siguiente**](../Reto-02/Readme.md)➡️

@@ -66,4 +66,4 @@ En hospitales, algunos recursos como quirófanos, equipos de resonancia magnéti
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-03/Readme.md) | [**Siguiente**](../Sesion-11/Readme.md)➡️  
+⬅️ [**Anterior**](../Ejemplo-03/Readme.md) | [**Siguiente**](../../Sesion-03/Readme.md)➡️  

@@ -64,16 +64,8 @@ Estos datos **se generan rápidamente**, pero **el sistema médico no puede proc
 
 ---
 
-📘 **Recursos útiles**:
-
-- 🔗 [Backpressure en Project Reactor](https://projectreactor.io/docs/core/release/reference/#backpressure)  
-- 🔗 [Reactive Streams in Healthcare – Dev.to](https://dev.to/maksimkorzh/reactive-streams-in-healthcare-5fj1)  
-- 🔗 [Simulación de datos en Java – Baeldung](https://www.baeldung.com/java-random-values)
-
----
-
 🏆 Si logras **filtrar, fusionar flujos** y aplicar **backpressure** en el monitoreo de signos vitales, ¡reto completado con éxito! 🎉
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-03/Readme.md) | [**Siguiente**](../Sesion-06/Readme.md)➡️  
+⬅️ [**Anterior**](../Ejemplo-03/Readme.md) | [**Siguiente**](../../Sesion-06/Readme.md)➡️  

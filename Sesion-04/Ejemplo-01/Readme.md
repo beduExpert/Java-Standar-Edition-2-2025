@@ -127,7 +127,6 @@ public class ProcesadorOrdenes {
 
 📘 Recursos adicionales:
 
-- 🔗 [Concurrencia vs asincronía – Baeldung](https://www.baeldung.com/java-asynchronous-synchronous)
 - 🔗 [CompletableFuture – Java Docs](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html)
 
 ---

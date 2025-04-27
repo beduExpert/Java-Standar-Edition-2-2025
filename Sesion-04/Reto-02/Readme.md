@@ -87,9 +87,8 @@ O:
 
 📘 Recursos útiles:
 
-- 🔗 [Asynchronous Programming with CompletableFuture – JetBrains Academy](https://www.jetbrains.com/academy/help/asynchronous-programming-with-completablefuture/)  
-- 🔗 [Java CompletableFuture Guide – Dev.to](https://dev.to/sandrinodimattia/introduction-to-completablefuture-in-java-4o2o)  
-- 🔗 [Random in Java – GeeksforGeeks](https://www.geeksforgeeks.org/random-in-java/)
+- 🔗 [Asynchronous Programming with CompletableFuture – GeeksforGeeks](https://www.geeksforgeeks.org/completablefuture-in-java/)  
+- 🔗 [Random in Java – GeeksforGeeks](https://www.geeksforgeeks.org/generating-random-numbers-in-java/)
 
 ---
 
@@ -97,4 +96,4 @@ O:
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-03/Readme.md) | [**Siguiente**](../Sesion-05/Readme.md)➡️  
+⬅️ [**Anterior**](../Ejemplo-03/Readme.md) | [**Siguiente**](../../Sesion-05/Readme.md)➡️  

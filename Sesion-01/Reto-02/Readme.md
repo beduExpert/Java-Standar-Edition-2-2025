@@ -75,4 +75,4 @@ Este reto se realiza **en el mismo proyecto del Ejemplo 02**, reutilizando la en
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-02/Readme.md) | [**Siguiente**](../Sesion-02/Readme.md)➡️  
+⬅️ [**Anterior**](../Ejemplo-02/Readme.md) | [**Siguiente**](../Ejemplo-03/Readme.md)➡️  

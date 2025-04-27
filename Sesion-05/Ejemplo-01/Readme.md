@@ -131,7 +131,7 @@ public class NotificacionesFluxReactivo {
 📘 Recursos útiles:
 
 - 🔗 [Project Reactor – Guía oficial](https://projectreactor.io/docs/core/release/reference/)  
-- 🔗 [Programación reactiva vs tradicional – Reflectoring](https://reflectoring.io/reactive-vs-traditional/)
+- 🔗 [Programación reactiva vs tradicional](https://www.pragma.co/es/blog/guia-de-programacion-reactiva-en-java)
 
 ---
 

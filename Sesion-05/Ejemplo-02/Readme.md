@@ -160,11 +160,4 @@ public class OperadoresReactorDemo {
 
 ---
 
-📘 **Recursos útiles**:
-
-- 🔗 [Documentación de Project Reactor](https://projectreactor.io/docs/core/release/reference/#which-operator)  
-- 🔗 [Operadores reactivos – DZone](https://dzone.com/articles/reactive-programming-operators-in-java)
-
----
-
 ⬅️ [**Anterior**](../Ejemplo-01/Readme.md) | [**Siguiente**](../Reto-01/Readme.md)➡️

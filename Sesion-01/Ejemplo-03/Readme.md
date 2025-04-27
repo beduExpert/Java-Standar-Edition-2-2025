@@ -198,7 +198,7 @@ Asegúrate de que la app esté corriendo en `http://localhost:8080`.
 ---
 
 📘 Recursos útiles:  
-🔗 [Spring Boot REST API – Baeldung](https://www.baeldung.com/spring-boot-building-a-restful-web-service)  
+🔗 [Spring Boot REST API](https://spring.io/guides/gs/rest-service)  
 🔗 [Postman – Guía oficial](https://learning.postman.com/docs/getting-started/introduction/)
 
 ---

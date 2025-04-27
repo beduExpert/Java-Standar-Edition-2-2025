@@ -69,14 +69,6 @@ El sistema debe **procesar estos flujos en paralelo**, **filtrar eventos crític
 
 ---
 
-📘 Recursos útiles:
-
-- 🔗 [Project Reactor Operators – Documentación oficial](https://projectreactor.io/docs/core/release/reference/#which-operator)  
-- 🔗 [Reactive Streams y Backpressure – DZone](https://dzone.com/articles/backpressure-in-reactive-streams)  
-- 🔗 [Random en Java – GeeksforGeeks](https://www.geeksforgeeks.org/random-in-java/)
-
----
-
 🏆 **Reto completado con éxito** si logras:
 
 - **Controlar los cinco sistemas en paralelo**.

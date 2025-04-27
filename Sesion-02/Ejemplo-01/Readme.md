@@ -120,7 +120,7 @@ Ejecutando Tarea 2 - Iteración 2 - Hilo: Thread-1
 
 📘 Recursos adicionales:  
 🔗 [Documentación oficial de `Thread`](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html)  
-🔗 [Programación concurrente en Java – Baeldung](https://www.baeldung.com/java-thread)  
+🔗 [Programación concurrente en Java](https://java.codeandcoke.com/apuntes:concurrencia)  
 
 ---
 

@@ -183,7 +183,7 @@ public class ConfirmacionPedidosGlobal {
 
 📘 Recursos adicionales:
 
-- 🔗 [flatMap en Java – Baeldung](https://www.baeldung.com/java-flat-map)  
+- 🔗 [flatMap en Java](https://www.geeksforgeeks.org/stream-flatmap-java-examples/)  
 - 🔗 [Stream API – Oracle Docs](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html)
 
 ---

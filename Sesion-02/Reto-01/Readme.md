@@ -73,7 +73,7 @@ Asegúrate de imprimir todos los resultados y cerrar el executor con `shutdown()
 ## 📘 Recursos útiles
 
 - 🔗 [ExecutorService – Oracle Docs](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html)  
-- 🔗 [Callable & Future en Java – Baeldung](https://www.baeldung.com/java-callable-future)
+- 🔗 [Callable & Future en Java](https://www.geeksforgeeks.org/callable-future-java/)
 
 ---
 
