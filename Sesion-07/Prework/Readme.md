@@ -67,8 +67,8 @@ Bienvenid@ al septimo Prework del módulo. A continuación, te presentamos el ti
 
 **📌 ¿Qué es un microservicio?**
 
-Un microservicio es una unidad independiente de una aplicación que se encarga de una función específica.
-Cada microservicio tiene su propia lógica, base de datos (opcional), y se comunica con otros microservicios a través de redes (por ejemplo, usando HTTP/REST).
+Un microservicio es una unidad independiente de una aplicación que se encarga de una función específica.  
+Cada microservicio tiene su propia lógica, base de datos (opcional), y se comunica con otros microservicios a través de redes (por ejemplo, usando HTTP/REST).  
 
 Lo importante es que cada microservicio vive por su cuenta, como una tienda en un centro comercial:
 - Cada tienda tiene su propio personal, sus productos y sus horarios.
@@ -85,7 +85,7 @@ Pensemos en una tienda en línea:
 | Módulo de pagos	| Integrado en el código base	| Es un servicio independiente que procesa pagos |
 |  Inventario	| Compartido con el resto del sistema	| Tiene su propio servicio y base de datos |
 
-🛡️ Con microservicios, cada módulo puede actualizarse o escalarse por separado. Si el módulo de pagos necesita manejar más tráfico (por ejemplo, en el Buen Fin), puedes escalarlo sin tocar los demás servicios.
+🛡️ Con microservicios, cada módulo puede actualizarse o escalarse por separado. Si el módulo de pagos necesita manejar más tráfico (Ej: en el Buen Fin), puedes escalarlo sin tocar los demás servicios.
 
 **🤜🤛 Diferencias con la arquitectura monolítica**
 
@@ -142,7 +142,6 @@ Estos casos muestran que a **mayor crecimiento, más necesidad de modularidad y 
 Puedes pensar los microservicios como algo asi:
 
 ```plaintext
-
        [Frontend]
             ↓
  ┌──────────┬──────────┬──────────┐
@@ -157,7 +156,7 @@ Adoptar microservicios es como dividir un problema grande en piezas pequeñas, d
 
 Esto te da agilidad, escala y resiliencia ante fallos. Pero también exige organización, automatización y monitoreo adecuado.
 
-**🔥 Tip final** 
+**🔥 Tip final**  
 No todos los sistemas necesitan microservicios desde el principio, pero si trabajas en un proyecto que crece rápidamente, o tiene módulos que deben evolucionar a ritmos distintos, considera modularizar poco a poco en microservicios para mantener la agilidad del desarrollo.
 
 
@@ -166,7 +165,7 @@ No todos los sistemas necesitan microservicios desde el principio, pero si traba
 #### 📚 Tema 02. Introducción a Spring Boot
 ##### ⏳ 10 minutos de lectura
 
-**📌 ¿Qué es Spring Boot?**
+**📌 ¿Qué es Spring Boot?**  
 Spring Boot es un framework que forma parte del ecosistema de Spring, la plataforma Java más utilizada para crear aplicaciones empresariales.
 
 Spring Framework ya ofrecía muchas herramientas para manejar seguridad, bases de datos, transacciones, etc.
@@ -187,7 +186,7 @@ Spring Boot nace como respuesta a esto, ofreciendo un arranque rápido, con:
 - 🧠Dependencias preconfiguradas (starters).
 - 💻 Servidor embebido listo para funcionar.
 
-🏆 Resultado
+🏆 Resultado  
 Con Spring Boot, puedes levantar un servicio REST en minutos, sin preocuparte por detalles técnicos complejos al inicio.
 
 **🧐 ¿Qué resuelve Spring Boot?**
@@ -224,13 +223,12 @@ Es como tener pequeños food trucks en lugar de un gran restaurante:
 | Flask	            | Python	        | Simple para APIs pequeñas en Python.                                      |
 | Django	        | Python	        | Más robusto, pero puede ser pesado para microservicios.                   |
 
-💥 Diferencia clave
+💥 Diferencia clave  
 Spring Boot es la opción ideal para Java, especialmente si vienes del mundo empresarial o necesitas robustez.
 
 **🏗️ Estructura típica de un proyecto Spring Boot**
 
 ```plaintext
-
 src/
  └── main/
       ├── java/
@@ -246,8 +244,8 @@ src/
            └── application.properties (Configuración: puerto, DB, etc.)
 ```
 
-**🔧 ¿Qué son los starters de Spring Boot?**
-Los starters son paquetes preconfigurados que incluyen las dependencias necesarias para una funcionalidad específica.
+**🔧 ¿Qué son los starters de Spring Boot?**  
+Los starters son paquetes preconfigurados que incluyen las dependencias necesarias para una funcionalidad específica.  
 
 Ejemplos:
 
@@ -295,16 +293,16 @@ public class SaludoController {
 }
 ```
 
-4. Probar en navegador o Postman:
-Accede a `http://localhost:8080/saludo` y obtendrás:
-**"¡Hola desde Spring Boot!"**
+4. Probar en navegador o Postman:  
+Accede a `http://localhost:8080/saludo` y obtendrás:  
+**"¡Hola desde Spring Boot!"**  
 
 **Resumen...**
 
-Spring Boot te permite levantar servicios web funcionales en minutos, con mínimo esfuerzo de configuración.
-Es ideal para microservicios porque cada uno puede ser independiente, ligero y fácilmente desplegable.
+Spring Boot te permite levantar servicios web funcionales en minutos, con mínimo esfuerzo de configuración.  
+Es ideal para microservicios porque cada uno puede ser independiente, ligero y fácilmente desplegable.  
 
-**🔥 Tip final** 
+**🔥 Tip final**  
 Si necesitas probar una idea, crear una API interna, o levantar un microservicio rápido para tu empresa, Spring Boot acelera el proceso y reduce la fricción técnica, permitiéndote enfocarte en la lógica de negocio, no en las configuraciones.
 
 ---
@@ -318,7 +316,7 @@ La comunicación entre servicios es lo que permite que, por ejemplo:
 - El servicio de pagos valide una compra con el servicio de inventario.
 - El servicio de usuarios consulte información al servicio de notificaciones para enviar un correo.
 
-💬 Visualizalo asi
+💬 Visualizalo asi  
 Piensa en un equipo de fútbol. Cada jugador tiene su rol independiente (portero, defensa, delantero), pero se comunican constantemente para coordinar jugadas. Sin comunicación, el equipo no funciona.
 
 **🔗 Formas de comunicación entre microservicios**
@@ -330,7 +328,7 @@ Existen dos formas principales de comunicación:
 | Síncrona (REST) | Un servicio llama directamente a otro (espera respuesta). | Servicio de carrito hace una petición HTTP al servicio de pagos. |
 | Asíncrona (Mensajería) | Los servicios se comunican a través de mensajes (no esperan respuesta inmediata). | Servicio de órdenes envía un mensaje a una cola (ej. RabbitMQ) y el servicio de inventario lo procesa cuando puede. |
 
-**🧩 Comunicación síncrona con REST**
+**🧩 Comunicación síncrona con REST**  
 La comunicación síncrona es la más directa:
 - Un servicio hace una solicitud HTTP (GET, POST, etc.) a otro servicio.
 - Espera la respuesta inmediata.
@@ -366,19 +364,19 @@ public class CarritoController {
 
 🌟 Aquí, Servicio A hace una llamada HTTP GET al Servicio B.
 
-🔥 Tip profesional
+🔥 Tip profesional  
 En aplicaciones grandes, es recomendable usar Feign Client o WebClient (más modernos y no bloqueantes) en lugar de RestTemplate.
 
-**🧩 Comunicación asíncrona con mensajería**
+**🧩 Comunicación asíncrona con mensajería**  
 La comunicación asíncrona se hace a través de mensajes en una cola (ej. RabbitMQ, Kafka):
 - Un servicio envía un mensaje a la cola.
 - Otro servicio procesa ese mensaje cuando esté listo.
 
-🟢 Ventaja: 
+🟢 Ventaja:  
 - No necesitas que ambos servicios estén disponibles al mismo tiempo.
 - Escalable y tolerante a fallos.
 
-🔴 Desventaja:
+🔴 Desventaja:  
 - Más compleja de configurar (necesitas un broker de mensajes como RabbitMQ).
 
 **🧪 Ejemplo conceptual con mensajería**
@@ -389,12 +387,11 @@ La comunicación asíncrona se hace a través de mensajes en una cola (ej. Rabbi
 - El servicio de pedidos notifica que hay una nueva orden.
 - El servicio de inventario procesa esa orden cuando puede.
 
-⚡ Uso común: 
+⚡ Uso común:  
 Para eventos que no necesitan respuesta inmediata (envío de correos, actualizaciones de inventario, logs, etc.).
 
 🎨 Visualización de los dos enfoques:
 ```plaintext
-
 Síncrono (REST):
   Servicio A ────────► Servicio B
        espera respuesta
@@ -422,7 +419,7 @@ La comunicación entre microservicios es la clave para que el sistema funcione c
 - Si necesitas respuesta inmediata, usa REST (síncrono).
 - Si puedes desacoplar la operación, usa mensajería (asíncrono).
 
-**🔥 Tip final**
+**🔥 Tip final**  
 En proyectos con múltiples microservicios, empieza con REST para comunicaciones críticas (como pagos), pero considera mensajería para eventos secundarios (como logs, notificaciones, auditorías) para mejorar la resiliencia y escalabilidad.
 
 ---
@@ -435,45 +432,45 @@ En proyectos con múltiples microservicios, empieza con REST para comunicaciones
 
 **🧩 Instrucciones**
 1. Se te presentan dos escenarios reales.
-2. Para cada uno:
+2. Para cada uno:  
     - Identifica qué tipo de comunicación es la más adecuada (síncrona o asíncrona).
     - Describe cómo estructurarías los microservicios involucrados usando Spring Boot.
     - Menciona qué herramienta o protocolo utilizarías (REST, RabbitMQ, Kafka, etc.).
 3. Reflexiona por qué tomaste esas decisiones.
 
-**🎭 Escenario 1: Plataforma de cursos en línea**
-Tu sistema tiene los siguientes módulos:
+**🎭 Escenario 1: Plataforma de cursos en línea**  
+Tu sistema tiene los siguientes módulos:  
  
-- Gestión de usuarios: Maneja el registro, autenticación y datos personales.
-- Gestión de cursos: Administra los cursos disponibles.
-- Notificaciones: Envía correos cuando un usuario se inscribe a un curso.
+- Gestión de usuarios: Maneja el registro, autenticación y datos personales.  
+- Gestión de cursos: Administra los cursos disponibles.  
+- Notificaciones: Envía correos cuando un usuario se inscribe a un curso.  
 
-Preguntas:
-- ¿Cómo se comunicarían los servicios de usuarios y cursos?
-- ¿Qué tipo de comunicación utilizarías entre gestión de cursos y notificaciones?
-- ¿Cómo garantizarías que las notificaciones se envíen sin bloquear la inscripción?
+Preguntas:  
+- ¿Cómo se comunicarían los servicios de usuarios y cursos?  
+- ¿Qué tipo de comunicación utilizarías entre gestión de cursos y notificaciones?  
+- ¿Cómo garantizarías que las notificaciones se envíen sin bloquear la inscripción?  
 
-**🎭 Escenario 2: Tienda en línea en temporada alta**
-Los módulos son:
+**🎭 Escenario 2: Tienda en línea en temporada alta**  
+Los módulos son:  
 
 - Carrito de compras: Maneja los productos agregados por el usuario.
 - Servicio de pagos: Procesa las transacciones.
 - Inventario: Actualiza las existencias después de una compra.
 - Registro de eventos: Guarda logs de transacciones.
 
-Preguntas:
+Preguntas:  
 - ¿Qué tipo de comunicación usarías entre carrito de compras y servicio de pagos?
 - ¿Cómo comunicarías el servicio de pagos con el inventario para actualizar existencias?
 - ¿Qué estrategia aplicarías para registrar eventos de compra sin afectar el rendimiento general?
 
-**💡 Sugerencia**
+**💡 Sugerencia**  
 Recuerda que la comunicación síncrona (REST) es mejor cuando necesitas una respuesta inmediata (como validar un pago), y la asíncrona (mensajería) es ideal para eventos que pueden procesarse en segundo plano (como enviar correos o registrar logs).
 
 ---
 
 #### **📝 Cierre**
 
-Hoy diste un paso importante en la comprensión de cómo dividir sistemas grandes en piezas más manejables y adaptables.
+Hoy diste un paso importante en la comprensión de cómo dividir sistemas grandes en piezas más manejables y adaptables.  
 Aprendiste que la arquitectura de microservicios no solo es una moda, sino una respuesta técnica a los retos de crecimiento, escalabilidad y resiliencia que enfrentan muchas aplicaciones modernas.
 
 Exploraste cómo Spring Boot facilita la creación de servicios independientes, permitiéndote arrancar rápido sin perder robustez, y cómo los servicios se comunican entre sí usando:
@@ -481,7 +478,7 @@ Exploraste cómo Spring Boot facilita la creación de servicios independientes, 
 - REST para respuestas inmediatas entre microservicios,
 - Mensajería asíncrona para procesos desacoplados y escalables.
 
-**🔥 Tip final**
+**🔥 Tip final**  
 Cuando enfrentes un proyecto que crece rápido o tenga múltiples módulos críticos (pagos, usuarios, inventario), evalúa si la arquitectura de microservicios es adecuada para mantener la flexibilidad y el control sobre cada parte.
 
 Y si decides implementarlos, Spring Boot puede ser tu mejor aliado para iniciar microservicios de forma ágil, pero no olvides planificar cómo se comunicarán para que el sistema fluya de forma coherente y confiable.
