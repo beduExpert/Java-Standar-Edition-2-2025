@@ -149,10 +149,10 @@ Java trae varias interfaces funcionales listas para usar:
 
 
 
-¡Listo! Ahora ya sabes qué es eso de **funciones puras, estado inmutable y lambdas**.
-Empezaste a pensar diferente: en lugar de cambiar cosas, creas **nuevas versiones** de ellas. Eso hace que tu código sea** más seguro y fácil de entender.**
+¡Listo! Ahora ya sabes qué es eso de **funciones puras, estado inmutable y lambdas**.  
+Empezaste a pensar diferente: en lugar de cambiar cosas, creas **nuevas versiones** de ellas. Eso hace que tu código sea **más seguro y fácil de entender.**
 
-**💡 Tip:** Cuando escribas una función, pregúntate:
+**💡 Tip:** Cuando escribas una función, pregúntate:  
 *"¿Este código depende de algo externo? ¿Podría devolver siempre el mismo resultado?"*
 Si la respuesta es sí, vas por buen camino hacia la programación funcional.
 
@@ -291,7 +291,7 @@ Entendiste cómo encadenar funciones pequeñas para lograr resultados grandes.
 | Concepto              | Función principal                                       |
 |-----------------------|---------------------------------------------------------|
 | A) `wait()`           | (___) Retorna el resultado de una tarea asíncrona       |
-| B) `ExecutorService`   | (___) Hace que un hilo espere hasta ser notificado      |
+| B) `ExecutorService`  | (___) Hace que un hilo espere hasta ser notificado      |
 | C) `Callable`         | (___) Clase que representa un hilo estándar             |
 | D) `Thread`           | (___) Similar a Runnable, pero puede devolver un valor  |
 | E) `Future`           | (___) Administra un conjunto de hilos y tareas          |
@@ -313,9 +313,9 @@ Entendiste cómo encadenar funciones pequeñas para lograr resultados grandes.
 
 #### **📝 Cierre**
 
-Ahora ya sabes cómo hacer que tus programas respiren multitarea sin explotar 💥
-Con los hilos y la concurrencia, puedes lograr que tu app haga varias cosas a la vez de forma más eficiente y profesional.
-Has conocido tanto la forma clásica (`Thread`, `Runnable`) como las modernas (`ExecutorService`, `Future`, `Locks`) para construir soluciones robustas.
+Ahora ya sabes cómo hacer que tus programas respiren multitarea sin explotar 💥  
+Con los hilos y la concurrencia, puedes lograr que tu app haga varias cosas a la vez de forma más eficiente y profesional.  
+Has conocido tanto la forma clásica (`Thread`, `Runnable`) como las modernas (`ExecutorService`, `Future`, `Locks`) para construir soluciones robustas.  
 
 ¡Prepárate para ponerlo en práctica y descubrir el verdadero poder del paralelismo! ⚙️🔥  
 

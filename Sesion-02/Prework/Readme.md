@@ -82,9 +82,9 @@ Aprenderás cómo funciona el ciclo de vida de un hilo, qué ventajas tiene y cu
 
 Cuando trabajas con hilos, estos son los métodos más importantes que vas a usar y ver constantemente. Te explico cada uno con detalle:
 
-**🔹 `start()`**
-Este método **inicia oficialmente el hilo**.
-Al llamarlo, el hilo pasa del estado New a Runnable, y el sistema lo programa para ejecutarse.
+**🔹 `start()`**  
+Este método **inicia oficialmente el hilo**.  
+Al llamarlo, el hilo pasa del estado New a Runnable, y el sistema lo programa para ejecutarse.  
 
 ```java
 MiHilo hilo = new MiHilo();
@@ -92,9 +92,9 @@ hilo.start(); // Aquí comienza la ejecución real
 ```
 **⚠️ ¡Ojo!** Si llamas directamente a `run()` en lugar de `start()`, el código se ejecutará en el mismo hilo principal (¡no será concurrente!)
 
-**🔹 `run()`**
-Este método contiene el **código que quieres que el hilo ejecute**.
-Es como el "corazón" de la tarea. Cuando se ejecuta el hilo, automáticamente se llama este método.
+**🔹 `run()`**  
+Este método contiene el **código que quieres que el hilo ejecute**.  
+Es como el "corazón" de la tarea. Cuando se ejecuta el hilo, automáticamente se llama este método.  
 
 ```java
 public class MiHilo extends Thread {
@@ -106,9 +106,9 @@ public class MiHilo extends Thread {
 
 **🧠 Tip**: Nunca llames a `run()` directamente si quieres ejecutar en paralelo. Usa `start()`.
 
-**🔹 `sleep(milliseconds)`**
-Este método **pausa temporalmente** la ejecución del hilo actual durante los milisegundos que especifiques.
-Es útil si necesitas simular una espera, controlar la frecuencia de ejecución o reducir carga.
+**🔹 `sleep(milliseconds)`**  
+Este método **pausa temporalmente** la ejecución del hilo actual durante los milisegundos que especifiques.  
+Es útil si necesitas simular una espera, controlar la frecuencia de ejecución o reducir carga.  
 
 ```java
 try {
@@ -120,10 +120,10 @@ try {
 
 **💡 Uso común:** Esperar entre ciclos en juegos, animaciones o procesos repetitivos.
 
-**🔹 `join()`**
+**🔹 `join()`**  
 
-Este método hace que **un hilo espere a que otro termine antes de continuar**.
-Es ideal cuando un hilo depende del resultado de otro para seguir.
+Este método hace que **un hilo espere a que otro termine antes de continuar**.  
+Es ideal cuando un hilo depende del resultado de otro para seguir.  
 
 ```java
 
@@ -162,8 +162,8 @@ Java ofrece muchas formas de crear hilos, desde lo más básico (`Thread`) hasta
 
 **Métodos para crear hilos**
 
-**A) Usando la clase `Thread`**
-`Thread` es una clase de Java que representa un hilo de ejecución. Puedes extenderla (heredarla) para crear tu propia lógica dentro del método run().
+**A) Usando la clase `Thread`**  
+`Thread` es una clase de Java que representa un hilo de ejecución. Puedes extenderla (heredarla) para crear tu propia lógica dentro del método run().  
 
 ```java
 class MiHilo extends Thread {
@@ -172,11 +172,11 @@ class MiHilo extends Thread {
     }
 }
 ```
-**✅ Ventaja**: Sencillo para ejemplos pequeños
-**⚠️ Desventaja**: Si ya estás heredando de otra clase, no puedes heredar también de Thread (Java no permite herencia múltiple)
+**✅ Ventaja**: Sencillo para ejemplos pequeños  
+**⚠️ Desventaja**: Si ya estás heredando de otra clase, no puedes heredar también de Thread (Java no permite herencia múltiple)  
 
-**B) Usando `Runnable`**
-`Runnable` es una interfaz funcional, lo que significa que puedes usarla para definir tu lógica con una expresión lambda. Luego, puedes pasarla como argumento a un objeto `Thread`.
+**B) Usando `Runnable`**  
+`Runnable` es una interfaz funcional, lo que significa que puedes usarla para definir tu lógica con una expresión lambda. Luego, puedes pasarla como argumento a un objeto `Thread`.  
 
 ```java
 Runnable tarea = () -> System.out.println("Desde Runnable");
@@ -189,7 +189,7 @@ new Thread(tarea).start();
 
 **💬 ¿Cuál debería usar?**
 
-Usa `Thread` solo si estás aprendiendo o el caso es muy simple.
+Usa `Thread` solo si estás aprendiendo o el caso es muy simple.  
 **Para proyectos reales, siempre se recomienda usar `Runnable`**, porque es más flexible, limpio y escalable. Además, se integra fácilmente con otras herramientas modernas como `ExecutorService`.
 
 **⚙️ `ExecutorService` y `Callable`**
@@ -212,7 +212,7 @@ System.out.println(resultado.get()); // Devuelve 42
 
 **🔎 Resumen**
 
-Ya dominaste lo esencial para crear y controlar hilos, tanto a la antigua como a la moderna.
+Ya dominaste lo esencial para crear y controlar hilos, tanto a la antigua como a la moderna.  
 
 `Thread` y `Runnable` son geniales para comenzar, pero cuando tu app crece, herramientas como `ExecutorService` y `Callable` te salvan la vida.
 Poder lanzar tareas y recoger sus resultados sin romper tu código es una de las claves para construir sistemas escalables.
@@ -226,7 +226,7 @@ Poder lanzar tareas y recoger sus resultados sin romper tu código es una de las
 
 Cuando dos hilos acceden a los mismos datos al mismo tiempo, pueden ocurrir **errores aleatorios**. A eso se le llama **condición de carrera**. Para evitarlo, necesitas sincronización.
 
-**🔐 ¿Qué hace exactamente `synchronized`?**
+**🔐 ¿Qué hace exactamente `synchronized`?**  
 Cuando usas varios hilos que acceden o modifican los mismos datos al mismo tiempo, puedes tener resultados inesperados. Esto se conoce como una condición de carrera (race condition).
 
 El modificador `synchronized` garantiza que solo un hilo a la vez pueda acceder a un bloque de código o método, evitando que los datos compartidos se corrompan.
@@ -254,10 +254,10 @@ public class Contador {
     }
 }
 ```
-**🔒 ¿Qué cambió?**
+**🔒 ¿Qué cambió?**  
 Solo un **hilo a la vez** puede entrar a `incrementar()`. Si otro hilo quiere ejecutarlo, **espera** a que el primero termine.
 
-**📦 También puedes sincronizar bloques (más control)**
+**📦 También puedes sincronizar bloques (más control)**  
 Si solo una parte del método necesita protección, puedes sincronizar solo ese fragmento:
 
 ```java
@@ -269,21 +269,21 @@ public void incrementar() {
 ```
 🧠 Esto es útil si solo una línea es crítica y no quieres bloquear todo el método.
 
-**🎯 ¿Cuándo usar `synchronized`?**
+**🎯 ¿Cuándo usar `synchronized`?**  
 - Cuando **múltiples hilos acceden al mismo recurso** (una variable, lista, mapa, archivo, etc.).
 
 - Cuando necesitas garantizar que un bloque de código se ejecute **de forma exclusiva**.
 
 - Cuando los resultados dependen del **orden de ejecución**.
 
-**🚧 ¿Qué pasa si no sincronizas?**
+**🚧 ¿Qué pasa si no sincronizas?**  
 - Resultados incorrectos o aleatorios.
 
 - Datos corruptos (valores que "desaparecen" o se duplican).
 
 - Problemas difíciles de detectar (¡funciona a veces y otras no!).
 
-**💡 Tip práctico**
+**💡 Tip práctico**  
 Usa `synchronized` con cuidado: si sincronizas demasiado código, puedes hacer que los hilos se bloqueen entre sí y tu app se vuelva lenta.
 
 Si necesitas aún más control (como intentar obtener un bloqueo solo si está libre), considera usar `Lock` y `ReentrantLock`.
@@ -309,7 +309,7 @@ synchronized(obj) {
 | `ReentrantLock` | Permite bloquear y desbloquear de forma explícita   |
 
 
-**🔎 Resumen**
+**🔎 Resumen**  
 Aquí aprendiste lo que realmente separa a un programa funcional de uno que "explota por dentro": **la sincronización**.
 Cuando varios hilos comparten recursos, debes organizar sus accesos para evitar errores locos y difíciles de reproducir.
 Ahora sabes cómo usar `synchronized`, `wait()`, `notify()` y `Lock` para que todo fluya sin pisarse los pies.
@@ -346,9 +346,9 @@ Ahora sabes cómo usar `synchronized`, `wait()`, `notify()` y `Lock` para que to
 
 #### **📝 Cierre**
 
-Ahora ya sabes cómo hacer que tus programas respiren multitarea sin explotar 💥
-Con los hilos y la concurrencia, puedes lograr que tu app haga varias cosas a la vez de forma más eficiente y profesional.
-Has conocido tanto la forma clásica (`Thread`, `Runnable`) como las modernas (`ExecutorService`, `Future`, `Locks`) para construir soluciones robustas.
+Ahora ya sabes cómo hacer que tus programas respiren multitarea sin explotar 💥  
+Con los hilos y la concurrencia, puedes lograr que tu app haga varias cosas a la vez de forma más eficiente y profesional.  
+Has conocido tanto la forma clásica (`Thread`, `Runnable`) como las modernas (`ExecutorService`, `Future`, `Locks`) para construir soluciones robustas.  
 
 ¡Prepárate para ponerlo en práctica y descubrir el verdadero poder del paralelismo! ⚙️🔥  
 

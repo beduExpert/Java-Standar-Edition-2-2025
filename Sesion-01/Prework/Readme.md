@@ -68,7 +68,7 @@ Es el kit de desarrollo de Java que incluye el compilador, bibliotecas y herrami
 - Incluye las herramientas necesarias para el desarrollo de aplicaciones.
 - Es la base sobre la que funcionan todos los entornos de desarrollo de Java.
 
-💡 Descarga la versión más reciente del JDK desde el siguiente enlace:
+💡 Descarga la versión más reciente del JDK desde el siguiente enlace:  
 🔗 (https://www.oracle.com/mx/java/technologies/downloads/)
 
 **¿Qué debes hacer?**
@@ -133,8 +133,8 @@ ResultSet rs = stmt.executeQuery("SELECT * FROM estudiantes");
 
 #### 📌 Ventajas del uso de ORM
 
-ORM (Object-Relational Mapping) permite mapear tus clases Java directamente a tablas.
-Te evita escribir SQL para todo y hace que tu código sea más limpio y mantenible.
+ORM (Object-Relational Mapping) permite mapear tus clases Java directamente a tablas.  
+Te evita escribir SQL para todo y hace que tu código sea más limpio y mantenible.  
 
 | JDBC                         | ORM (ej. Hibernate / JPA)                |
 |----------------------------- |------------------------------------------|
@@ -188,8 +188,8 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
 
 **🎥 Recursos útiles para reforzar**
 
-🔹 🔗 Documentación oficial de JDBC (Oracle) 👉 (https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/)   
-🔹 📹 Video introductorio a JPA + Spring Boot (YouTube) 👉 (https://www.youtube.com/watch?v=MaI0_XdpdP8)
+🔹 🔗 Documentación oficial de JDBC (Oracle) 👉 (https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/)  
+🔹 📹 Video introductorio a JPA + Spring Boot (YouTube) 👉 (https://youtu.be/t27Uozc2Z58?si=WMflFex_L8GHCxpF)  
 
 **🔎 Resumen**
 
@@ -262,7 +262,7 @@ spring.jpa.hibernate.ddl-auto=update
 - `h2.console.enabled`: activa el acceso a la consola web
 
 
-**🔎 Resumen**
+**🔎 Resumen**  
 Ya tienes lo esencial para dejar de preocuparte por configuraciones complejas y enfocarte en lo importante: el desarrollo.
 
 Con H2, Maven y el archivo `application.properties`, cuentas con un entorno de pruebas funcional y ligero para comenzar a experimentar de inmediato.
@@ -348,7 +348,7 @@ Una vez que levantes tu app (con `mvn spring-boot:run` o desde IntelliJ), puedes
 | DELETE  | `/estudiantes/{id}` | Eliminar un estudiante    |
 
 
-**🔎 Resumen**
+**🔎 Resumen**  
 Con este último paso completas el ciclo: desde definir tu entidad hasta consultarla desde Postman.
 
 Has visto cómo se conectan las piezas de una aplicación moderna usando Spring Boot, cómo se estructuran las capas y cómo la lógica fluye hacia la base de datos.
