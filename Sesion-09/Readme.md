@@ -12,15 +12,14 @@ Construir, ejecutar y probar un microservicio funcional en Java para la gestión
 
 Durante la sesión, utilizaremos las siguientes clases y componentes:
 
-| Clase	        | Descripción                                                                         |
-|---------------|-------------------------------------------------------------------------------------|
-| `Prestamo` (modelo) |	Representa un préstamo personal (cliente, monto, estado).|
-| `PrestamoRepository` | Interfaz JPA para interactuar con la base de datos H2.|
-| `PrestamoService` | Lógica para crear préstamos, evaluarlos (de forma asíncrona) y cambiar su estado.|
-| `PrestamoController` | Exposición de endpoints REST para crear, consultar y filtrar préstamos.|
-| `SLF4J` |	Registro de logs en contexto durante la evaluación y los cambios de estado.|
-| `JUnit + Mockito` | Pruebas unitarias para validar la lógica del servicio y garantizar su correcto funcionamiento.|
-
+| Clase                   | Descripción |
+|--------------------------|-------------|
+| `Prestamo` (modelo)       | Representa un préstamo personal (cliente, monto, estado). |
+| `PrestamoRepository`      | Interfaz JPA para interactuar con la base de datos H2. |
+| `PrestamoService`         | Lógica para crear préstamos, evaluarlos (de forma asíncrona) y cambiar su estado. |
+| `PrestamoController`      | Exposición de endpoints REST para crear, consultar y filtrar préstamos. |
+| `SLF4J`                   | Registro de logs en contexto durante la evaluación y los cambios de estado. |
+| `JUnit + Mockito`         | Pruebas unitarias para validar la lógica del servicio y garantizar su correcto funcionamiento. |
 
 ---
 
@@ -39,8 +38,46 @@ Durante la sesión, utilizaremos las siguientes clases y componentes:
    - Spring Data JPA
    - H2 Database
    - Spring Boot DevTools
-   - Spring Boot Test
+   - Spring Boot Starter Test
 4. Haz clic en "Generate" y abre el proyecto en IntelliJ IDEA.
+
+---
+
+## 📦 Configuración de dependencias adicionales (Maven)
+
+Agrega estas dependencias manualmente en tu archivo `pom.xml`, ya que no vienen por defecto en Spring Initializr:
+
+```xml
+<dependencies>
+    <!-- Reactor Core (para programación reactiva y uso de CompletableFuture más avanzado) -->
+    <dependency>
+        <groupId>io.projectreactor</groupId>
+        <artifactId>reactor-core</artifactId>
+        <version>3.6.11</version>
+    </dependency>
+
+    <!-- SLF4J API (para logs en contexto) -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>2.0.17</version>
+    </dependency>
+
+    <!-- SLF4J Simple (implementación básica de SLF4J para pruebas locales) -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.17</version>
+    </dependency>
+</dependencies>
+```
+
+---
+
+✅ **Notas finales de aclaración**:
+- `Spring Boot Starter Test` **ya integra** JUnit 5 y Mockito, por eso no necesitas agregarlos manualmente.
+- `reactor-core` se agrega porque vas a usar programación reactiva o modelos asincrónicos más robustos (`Mono`, `Flux`, etc.).
+- `slf4j-api` + `slf4j-simple` son para controlar los logs en un ambiente simple (en producción deberías cambiar a Logback o Log4j si fuera necesario).
 
 ---
 
