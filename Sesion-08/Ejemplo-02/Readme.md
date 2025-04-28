@@ -293,4 +293,4 @@ Este ejemplo:
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-01/Readme.md) | [**Siguiente**](../Ejemplo-03/Readme.md)➡️  
+⬅️ [**Anterior**](../Ejemplo-01/Readme.md) | [**Siguiente**](../Reto-02/Readme.md)➡️  

@@ -33,15 +33,15 @@ Este ejemplo muestra cómo **organizar un proyecto Java por capas** (controlador
 
 ```
 Ejemplo-03/
-├── controller/
+├── controller/     📂 Controladores (gestión de interacción)
 │   └── ProductoController.java
-├── service/
+├── service/        🔧 Servicios (lógica de negocio)
 │   └── ProductoService.java
-├── model/
+├── model/          📦 Modelos (entidades de datos)
 │   └── Producto.java
-├── Main.java
-├── .gitignore
-└── README.md
+├── Main.java       ▶️ Punto de entrada del programa
+├── .gitignore      🚫 Configuración para excluir archivos no deseados
+└── Readme.md       📝 Documentación mínima del proyecto
 ```
 
 ---
@@ -76,7 +76,7 @@ public class Producto {
 // service/ProductoService.java
 package service;
 
-import com.bedu.organizacion.model.Producto;
+import model.Producto;
 import java.util.List;
 
 public class ProductoService {
@@ -98,8 +98,8 @@ public class ProductoService {
 // controller/ProductoController.java
 package controller;
 
-import com.bedu.organizacion.model.Producto;
-import com.bedu.organizacion.service.ProductoService;
+import model.Producto;
+import service.ProductoService;
 import java.util.List;
 
 public class ProductoController {
@@ -108,7 +108,7 @@ public class ProductoController {
 
     public void listarProductos() {
         List<Producto> productos = productoService.obtenerProductos();
-        productos.forEach(producto -> 
+        productos.forEach(producto ->
             System.out.println("📦 Producto: " + producto.getNombre() + " | Precio: $" + String.format("%,.2f", producto.getPrecio()))
         );
     }
@@ -133,74 +133,89 @@ public class Main {
 
 ---
 
-## 📝 Documentación mínima (`README.md` del proyecto)
+## 🛠️ Instrucciones para compilar y ejecutar
 
-```markdown
-# 🎯 Proyecto de Organización por Capas
-
-Este proyecto implementa una **estructura por capas** en Java:
-
-- `controller/` → Maneja la interacción principal (simula controladores HTTP).
-- `service/` → Contiene la lógica de negocio.
-- `model/` → Define las entidades o modelos de datos.
-
-## 🚀 ¿Cómo ejecutar?
-
-1. Asegúrate de tener **JDK 17** instalado.
-2. Compila el proyecto:
+1. **Compilar el proyecto:**
 
 ```bash
 javac model/*.java service/*.java controller/*.java Main.java
 ```
 
-3. Ejecuta la clase principal:
+2. **Ejecutar la clase principal:**
 
 ```bash
 java Main
 ```
+
+### 📝 Salida esperada:
+
+```
+📦 Producto: Laptop | Precio: $1,500.00
+📦 Producto: Mouse  | Precio: $25.00
+```
+
+---
+
+## 📝 Documentación mínima recomendada
+
+Incluye estos elementos en el **README.md** del proyecto:
+
+- 🎯 **Nombre del proyecto:** Proyecto de Organización por Capas.
+- 📝 **Descripción:** Implementa una estructura por capas en Java para facilitar la organización del código.
+- 🛠️ **Instrucciones para compilar y ejecutar** (como las mostradas anteriormente).
+- 🗂️ **Estructura del proyecto** (como se mostró al inicio).
+
+---
+
+## 🚫 `.gitignore` básico sugerido
+
+```
+*.class          🚫 Archivos compilados
+/target/         🚫 Carpeta de compilación (si existiera)
+/.idea/          🚫 Configuración de IntelliJ IDEA
+*.iml            🚫 Archivos de proyecto de IntelliJ
 ```
 
 ---
 
 ## 🛠️ Configuración básica de Git
 
-1. Inicializa un repositorio Git en el proyecto:
+### 🔃 Inicializa el repositorio local:
 
 ```bash
 git init
 ```
 
-2. Crea un archivo **`.gitignore`** para excluir archivos no deseados (ejemplo básico):
-
-```
-/target/
-*.class
-.idea/
-*.iml
-```
-
-3. Realiza tu primer commit:
+### 💾 Realiza tu primer commit:
 
 ```bash
 git add .
-git commit -m "Inicializa proyecto con estructura por capas"
+git commit -m "🚀 Inicializa proyecto con estructura por capas"
 ```
 
-4. (Opcional) Conecta con un repositorio remoto en **GitHub**:
+### 🌐 Conecta tu repositorio a **GitHub** (opcional):
 
 ```bash
 git remote add origin https://github.com/usuario/organizacion-proyecto.git
 git push -u origin main
 ```
 
+### 🔥 Tip final:
+
+- Usa **commits pequeños y descriptivos**:
+  
+  - ❌ `Cambios varios`  
+  - ✅ `🎨 Refactoriza ProductoService para mejorar legibilidad`
+
+- Sincroniza frecuentemente con el repositorio remoto (`git pull`, `git push`). 🔄
+
 ---
 
 ## 📝 Conceptos clave utilizados
 
 - **Estructura por capas** (controlador, servicio, modelo).
-- **Convenciones de paquetes** (`com.bedu.organizacion`).
 - **Control de versiones con Git**.
-- **Documentación mínima (`README.md`)**.
+- **Documentación mínima del proyecto**.
 
 ---
 
@@ -212,4 +227,4 @@ Este ejemplo mostró cómo **organizar un proyecto Java** por capas y configurar
 
 ---
 
-⬅️ [**Anterior**](../Ejemplo-02/Readme.md) | [**Siguiente**](../Reto-02/Readme.md)➡️  
+⬅️ [**Anterior**](../Reto-02/Readme.md) | [**Siguiente**](../../Readme.md)➡️  
