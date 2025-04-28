@@ -1,4 +1,5 @@
-🏠 [**Inicio**](../Readme.md) ➡️ / 📖 `Sesión 10`/ 🧠 `Sesión 10: Repaso integral y Mentorship Final`
+🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 10**](../Readme.md) ➡️ / 🧠 `Sesión 10: Repaso integral y Mentorship Final`
+
 ---
 
 ## 🎯 Objetivo general
@@ -6,297 +7,379 @@ Reflexionar, preguntar y reforzar conocimientos clave adquiridos en el módulo *
 
 ---
 
-## 🧩 Sesión 01: Introducción a la programación orientada a objetos en Java
+## 🧩 Sesión 01: Gestión de bases de datos
 
 ✅ **Recordatorio rápido**  
-- Java es un lenguaje multiplataforma, orientado a objetos y seguro.  
-- Fundamentos de POO: clases, objetos, encapsulamiento, herencia, polimorfismo, abstracción.  
-- Herramientas utilizadas: JDK + IntelliJ.  
+Conectamos Java con bases de datos usando JPA y Hibernate, automatizando la persistencia de datos mediante entidades, repositorios, servicios y controladores en Spring Boot.
 
 💬 **Preguntas detonadoras**
-- ¿Qué beneficios te dio pensar en objetos en lugar de funciones sueltas?
-- ¿Qué parte de la POO se te hizo más retadora?
+- ¿Qué ventaja ofrece usar JPA frente a escribir SQL manualmente?
+- ¿Por qué es importante separar la lógica en capas (controlador, servicio, repositorio)?
+- ¿Qué datos básicos necesitas configurar en `application.properties` para conectar tu aplicación a una base de datos?
 
-⚙️ **Ejercicio: Clase `Libro`**
+⚙️ **Ejercicio**
 
-Crear una clase `Libro` con atributos y un método `mostrarInfo()`.
-
-```java
-// Definición de la clase Libro con dos atributos: título y autor
-public class Libro {
-    String titulo; // Atributo que representa el título del libro
-    String autor;  // Atributo que representa el autor del libro
-
-    // Método para mostrar la información del libro
-    public void mostrarInfo() {
-        System.out.println("Título: " + titulo + ", Autor: " + autor);
-    }
-
-    // Método principal que se ejecuta al iniciar el programa
-    public static void main(String[] args) {
-        Libro libro1 = new Libro();     // Se crea una nueva instancia de Libro
-        libro1.titulo = "1984";         // Se asigna el título
-        libro1.autor = "George Orwell"; // Se asigna el autor
-        libro1.mostrarInfo();           // Se llama al método para mostrar los datos
-    }
-}
-```
-
----
-
-## 🔄 Sesión 02: Tipos de datos y sentencias de control
-
-🧵 **Recordatorio rápido**  
-- Tipos primitivos, `var`, operadores aritméticos y lógicos.  
-- Estructuras de control: `if`, `switch`, `for`, `while`, `do-while`, `for-each`.
-
-💬 **Preguntas detonadoras**
-- ¿En qué situaciones usaste `for` y en cuáles `while`?
-- ¿Recuerdas alguna confusión que tuviste con operadores lógicos?
-
-⚙️ **Ejercicio: Pares e impares**
-
-Crear un programa que imprima los números del 1 al 10 y diga si son pares o impares.
+Define una entidad Java llamada `Producto` que represente una tabla con los campos `id`, `nombre` y `precio`. Asegúrate de usar las anotaciones de JPA correctamente para que esta clase pueda mapearse a una base de datos.
 
 ```java
-// Clase para imprimir si los números del 1 al 10 son pares o impares
-public class Numeros {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 10; i++) { // Bucle del 1 al 10
-            if (i % 2 == 0) {           // Verifica si el número es divisible por 2
-                System.out.println(i + " es par");
-            } else {
-                System.out.println(i + " es impar");
-            }
-        }
+package com.miempresa.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
+@Entity  // Marca esta clase como una entidad de base de datos
+public class Producto {
+
+    @Id  // Define el campo como clave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incrementable
+    private Long id;
+
+    private String nombre;
+    private double precio;
+
+    // Constructor vacío necesario para JPA
+    public Producto() {}
+
+    // Constructor con atributos
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre;
+        this.precio = precio;
     }
-}
-```
 
----
+    // Getters y setters
+    public Long getId() {
+        return id;
+    }
 
-## 🧱 Sesión 03: Clases y objetos: crea aplicaciones que permitan el ingreso de información
+    public String getNombre() {
+        return nombre;
+    }
 
-🧵 **Recordatorio rápido**  
-- Creación de clases personalizadas, atributos, constructores, `static`, `final`, `Optional`.
-
-💬 **Preguntas detonadoras**
-- ¿Cuándo usaste `static` y cuándo decidiste no usarlo?
-- ¿Lograste aplicar `Optional` en tus programas?
-
-⚙️ **Ejercicio: Clase `Estudiante`**
-
-Definir una clase `Estudiante` con método `saludar()` y ejecutarlo.
-
-```java
-// Clase que representa un estudiante
-public class Estudiante {
-    String nombre; // Atributo del nombre del estudiante
-
-    // Constructor que inicializa el nombre
-    public Estudiante(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    // Método que imprime un saludo
-    public void saludar() {
-        System.out.println("Hola, soy " + nombre);
+    public double getPrecio() {
+        return precio;
     }
 
-    // Método principal
-    public static void main(String[] args) {
-        Estudiante e = new Estudiante("Ana"); // Crear estudiante
-        e.saludar(); // Llamar al método saludar
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }
+
 ```
+
 ---
 
-## 📦 Sesión 04: Elementos de una clase: implementa validación de datos
+## 🔄  Sesión 02: Multihilos y procesos concurrentes
 
 🧵 **Recordatorio rápido**  
-- Métodos sobrescritos: `equals()`, `hashCode()`, `toString()`  
-- `record` para clases inmutables y limpias  
-- Encapsulamiento e inmutabilidad con `private final`, sin setters
+Utilizamos hilos para ejecutar múltiples tareas en paralelo y aprendimos a gestionar la concurrencia de forma controlada usando `ExecutorService` y `Callable`.
 
 💬 **Preguntas detonadoras**
-- ¿Cuándo necesitaste comparar objetos y qué problemas enfrentaste?
-- ¿Usaste `record`? ¿Qué te pareció?
+- ¿Cuál es la diferencia entre crear un hilo con `Thread` y gestionar múltiples tareas con `ExecutorService`?
+- ¿Por qué es importante manejar correctamente el acceso a recursos compartidos en programas concurrentes?
+- ¿Qué método puedes usar para pausar un hilo por un periodo de tiempo?
 
-⚙️ **Ejercicio: Uso de `record`**
+⚙️ **Ejercicio**
 
-Crear un `record` llamado `Producto` y mostrarlo por consola.
-
-```java
-// Clase principal que utiliza un record
-public class DemoRecord {
-    public static void main(String[] args) {
-        Producto p1 = new Producto("Laptop", 1200.0); // Crear producto
-        System.out.println(p1); // Imprimir detalles del producto
-    }
-}
-
-// Record que representa un producto con nombre y precio
-record Producto(String nombre, double precio) {}
-```
-
----
-
-## 🧬 Sesión 05: Diseño de clases (herencia y polimorfismo): reutiliza código existente por medio de herencia y polimorfismo
-
-✅ **Recordatorio rápido**  
-- `extends`, `implements`, `@Override`, clases abstractas e interfaces  
-- Diferencia entre **herencia** ("es un") y **composición** ("tiene un")
-
-💬 **Preguntas detonadoras**
-- ¿Cuándo elegiste herencia y cuándo composición?
-- ¿Te costó implementar interfaces?
-
-⚙️ **Ejercicio: `Animal` y `Perro`**
-
-Crear una clase `Animal`, subclase `Perro` y método `hacerSonido()` sobrescrito.
+Crea un hilo que imprima el mensaje `"Hola desde otro hilo"` y luego detén el hilo principal (`main`) durante 2 segundos usando `sleep()`.
 
 ```java
-// Clase base Animal con un método genérico
-public class Animal {
-    public void hacerSonido() {
-        System.out.println("Sonido genérico");
-    }
-}
+package com.miempresa.concurrencia;
 
-// Subclase Perro que sobrescribe el método hacerSonido
-class Perro extends Animal {
+// Implementamos la interfaz Runnable para definir la tarea del hilo
+public class HiloSaludo implements Runnable {
+
     @Override
-    public void hacerSonido() {
-        System.out.println("Ladrido");
+    public void run() {
+        // Código que ejecutará el hilo al iniciarse
+        System.out.println("Hola desde otro hilo");
     }
 
     public static void main(String[] args) {
-        Animal miAnimal = new Perro(); // Polimorfismo: Animal apunta a Perro
-        miAnimal.hacerSonido(); // Ejecuta el método de Perro
-    }
-}
-```
+        // Creamos una instancia del Runnable
+        HiloSaludo tarea = new HiloSaludo();
 
----
+        // Asociamos la tarea a un nuevo hilo
+        Thread hilo = new Thread(tarea);
 
-## 🧰 Sesión 06: Colecciones: utiliza diversas estructuras de datos de acuerdo al tipo de aplicación a desarrollar
-
-✅ **Recordatorio rápido**  
-- Estructuras dinámicas: `ArrayList`, `HashSet`, `HashMap`  
-- Ordenamiento con `Comparable` y `Comparator`
-
-💬 **Preguntas detonadoras**
-- ¿Cuál colección usaste más y por qué?
-- ¿Lograste ordenar tus objetos con `Comparator`?
-
-⚙️ **Ejercicio: Lista ordenada**
-
-Crear una `ArrayList` de nombres y ordenarla alfabéticamente.
-
-```java
-import java.util.*;
-
-// Clase que demuestra cómo ordenar una lista
-public class ListaOrdenada {
-    public static void main(String[] args) {
-        List<String> nombres = new ArrayList<>(); // Crear lista de nombres
-        nombres.add("Luis");
-        nombres.add("Ana");
-        nombres.add("Carlos");
-
-        Collections.sort(nombres); // Ordenar alfabéticamente
-
-        System.out.println("Nombres ordenados:");
-        for (String nombre : nombres) {
-            System.out.println(nombre); // Imprimir cada nombre
-        }
-    }
-}
-```
-
----
-
-## 📂 Sesión 07: Manejo de archivos: guarda información en un archivo de manera persistente
-
-✅ **Recordatorio rápido**  
-- `Path`, `Files.readString()`, `Files.write()`  
-- Buenas prácticas con `try-with-resources` y validación de rutas
-
-💬 **Preguntas detonadoras**
-- ¿Pudiste leer o escribir un archivo con éxito?
-- ¿Qué dudas tuviste sobre rutas relativas o absolutas?
-
-⚙️ **Ejercicio: Escritura y lectura de archivo**
-
-Escribir un texto en un archivo `notas.txt` y luego leerlo.
-
-```java
-import java.io.IOException;
-import java.nio.file.*;
-
-// Clase que escribe y lee un archivo usando NIO.2
-public class Archivos {
-    public static void main(String[] args) {
-        Path ruta = Path.of("notas.txt"); // Definir la ruta del archivo
+        // Iniciamos el hilo (se ejecuta el método run())
+        hilo.start();
 
         try {
-            // Escribir contenido en el archivo
-            Files.write(ruta, "Primera nota desde Java".getBytes());
-
-            // Leer el contenido del archivo
-            String contenido = Files.readString(ruta);
-            System.out.println("Contenido del archivo:\n" + contenido);
-        } catch (IOException e) {
-            System.out.println("Error de archivo: " + e.getMessage());
+            // Pausamos el hilo principal por 2 segundos (2000 milisegundos)
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // Capturamos la posible interrupción del hilo durante el sueño
+            e.printStackTrace();
         }
+
+        // Mensaje desde el hilo principal (se ejecuta después de dormir)
+        System.out.println("Fin del hilo principal");
     }
 }
 ```
 
 ---
 
-## 🛠️ Sesión 08: Buenas prácticas y manejo de errores en Java
+## 🧱 Sesión 03: Programación funcional
 
-✅ **Recordatorio rápido**  
-- Refactorización, `code smells`, principios SOLID  
-- Manejo de errores con `try-catch`, `throws`, excepciones personalizadas
+🧵 **Recordatorio rápido**  
+Aplicaste funciones puras, lambdas, Optional y Streams para escribir código más claro, seguro y expresivo, procesando datos de manera fluida sin ciclos tradicionales.
 
 💬 **Preguntas detonadoras**
-- ¿Cuál principio SOLID aplicarías en tu código?
-- ¿Cómo decidiste cuándo capturar una excepción?
+- ¿Qué características tiene una función pura?
+- ¿Para qué situaciones es útil el uso de `Optional`?
+- ¿Qué operaciones puedes encadenar utilizando la API de Streams en Java?
 
-⚙️ **Ejercicio: Excepción personalizada**
+⚙️ **Ejercicio**
 
-Crear una excepción personalizada `EdadNoValidaException` y lanzar un error si edad < 0.
+Usa un Stream para recorrer una lista de nombres, filtrar los nombres que tengan más de 4 letras y mostrarlos en consola en mayúsculas.
 
 ```java
-// Excepción personalizada para validar edad negativa
-class EdadNoValidaException extends Exception {
-    public EdadNoValidaException(String mensaje) {
-        super(mensaje);
-    }
-}
+package com.miempresa.programacionfuncional;
 
-// Clase que verifica si una edad es válida
-public class VerificadorEdad {
-    public static void verificarEdad(int edad) throws EdadNoValidaException {
-        if (edad < 0) {
-            throw new EdadNoValidaException("La edad no puede ser negativa.");
-        } else {
-            System.out.println("Edad válida: " + edad);
-        }
-    }
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamEjemplo {
 
     public static void main(String[] args) {
+        // Creamos una lista de nombres
+        List<String> nombres = Arrays.asList("Ana", "Roberto", "Luis", "Gabriela");
+
+        // Procesamos la lista usando Stream
+        nombres.stream()
+            .filter(nombre -> nombre.length() > 4) // Filtra nombres con más de 4 caracteres
+            .map(String::toUpperCase)              // Convierte los nombres filtrados a mayúsculas
+            .forEach(System.out::println);         // Imprime cada nombre resultante en consola
+    }
+}
+```
+---
+
+## 📦 Sesión 04: Procesos asíncronos
+
+🧵 **Recordatorio rápido**  
+Implementaste procesos asíncronos en Java usando `CompletableFuture`, permitiendo ejecutar tareas en segundo plano sin bloquear el flujo principal de la aplicación.
+
+💬 **Preguntas detonadoras**
+- ¿Qué ventaja tiene usar `CompletableFuture` frente a ejecutar métodos de forma tradicional?
+- ¿Qué método puedes utilizar para ejecutar una acción después de que una tarea asíncrona se complete?
+- ¿Cómo manejarías una excepción dentro de un flujo de `CompletableFuture`?
+
+⚙️ **Ejercicio**
+
+Lanza una tarea asíncrona que devuelva el número 42, y al terminar, imprime en consola el mensaje `"Resultado obtenido: 42"`.
+
+```java
+package com.miempresa.procesosasincronos;
+
+import java.util.concurrent.CompletableFuture;
+
+public class CompletableFutureEjemplo {
+
+    public static void main(String[] args) {
+        // Creamos una tarea asíncrona que devuelve el número 42
+        CompletableFuture<Integer> tarea = CompletableFuture.supplyAsync(() -> {
+            // Simulamos una tarea que calcula un valor
+            return 42;
+        });
+
+        // Cuando la tarea termina, imprimimos el resultado
+        tarea.thenAccept(resultado -> {
+            System.out.println("Resultado obtenido: " + resultado);
+        });
+
+        // Pausa breve para que la tarea asíncrona alcance a completarse antes de que finalice el programa
         try {
-            verificarEdad(-5); // Prueba con una edad inválida
-        } catch (EdadNoValidaException e) {
-            System.out.println("Error: " + e.getMessage());
+            Thread.sleep(1000); // 1 segundo
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
 ```
+---
+
+## 🧬 Sesión 05: Stream Reactivos
+
+✅ **Recordatorio rápido**  
+Exploraste cómo manejar flujos de datos asíncronos usando Mono y Flux en programación reactiva, controlando la emisión, transformación y consumo de eventos.
+
+💬 **Preguntas detonadoras**
+- ¿Cuál es la diferencia entre Mono y Flux en programación reactiva?
+- ¿Qué operador puedes usar para transformar los elementos de un flujo?
+- ¿Qué sucede si los datos llegan más rápido de lo que el sistema puede procesarlos?
+
+⚙️ **Ejercicio**
+Crea un Mono que contenga el mensaje `"¡Hola reactivo!"` y suscríbete a él para imprimirlo en consola.
+
+```java
+package com.miempresa.streamreactivos;
+
+import reactor.core.publisher.Mono;
+
+public class MonoEjemplo {
+
+    public static void main(String[] args) {
+        // Creamos un Mono que contiene un solo elemento: un mensaje
+        Mono<String> saludo = Mono.just("¡Hola reactivo!");
+
+        // Nos suscribimos al Mono para recibir el valor y mostrarlo en consola
+        saludo.subscribe(mensaje -> System.out.println(mensaje));
+    }
+}
+```
+
+---
+
+## 🧰 Sesión 06: Clases genéricas
+
+✅ **Recordatorio rápido**  
+Aprendiste a crear clases y métodos genéricos que pueden trabajar con diferentes tipos de datos, manteniendo la seguridad en tiempo de compilación y evitando conversiones innecesarias.
+
+💬 **Preguntas detonadoras**
+- ¿Qué ventaja ofrece una clase genérica frente a una clase específica de un tipo?
+- ¿Qué representa el símbolo `<T>` en una definición genérica?
+- ¿Cuándo es útil usar restricciones como `<T extends Number>` en genéricos?
+
+⚙️ **Ejercicio**
+
+Crea una clase genérica llamada `Caja` que pueda almacenar un objeto de cualquier tipo y permita obtenerlo.
+
+```java
+package com.miempresa.clasesgenericas;
+
+// Definimos una clase genérica llamada Caja
+public class Caja<T> {
+
+    // Variable para almacenar un objeto de tipo T
+    private T contenido;
+
+    // Método para guardar un objeto en la caja
+    public void guardar(T contenido) {
+        this.contenido = contenido;
+    }
+
+    // Método para obtener el contenido de la caja
+    public T obtener() {
+        return contenido;
+    }
+
+    public static void main(String[] args) {
+        // Creamos una caja que guarda un String
+        Caja<String> cajaDeTexto = new Caja<>();
+        cajaDeTexto.guardar("¡Hola, mundo!");
+        System.out.println(cajaDeTexto.obtener());
+
+        // Creamos una caja que guarda un número
+        Caja<Integer> cajaDeNumero = new Caja<>();
+        cajaDeNumero.guardar(123);
+        System.out.println(cajaDeNumero.obtener());
+    }
+}
+```
+
+---
+
+## 📂 Sesión 07: Microservicios
+
+✅ **Recordatorio rápido**  
+Exploraste cómo modularizar aplicaciones dividiéndolas en servicios pequeños e independientes usando Spring Boot para construir APIs REST de manera sencilla y organizada.
+
+💬 **Preguntas detonadoras**
+- ¿Qué ventaja principal tiene una arquitectura de microservicios comparada con un monolito?
+- ¿Qué anotación en Spring Boot permite exponer un endpoint como servicio web REST?
+- ¿Cuál es el comportamiento de `@SpringBootApplication`?
+
+⚙️ **Ejercicio**
+
+Crea un controlador REST que responda al endpoint `/saludo` con el mensaje `"¡Bienvenido al mundo de los microservicios!"`.
+
+```java
+package com.miempresa.microservicios;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+// Anotación que marca la clase principal de una aplicación Spring Boot
+@SpringBootApplication
+public class MicroservicioAplicacion {
+
+    public static void main(String[] args) {
+        // Inicia la aplicación Spring Boot
+        SpringApplication.run(MicroservicioAplicacion.class, args);
+    }
+}
+
+// Anotación que indica que esta clase manejará solicitudes HTTP REST
+@RestController
+class SaludoControlador {
+
+    // Anotación que mapea el endpoint GET /saludo
+    @GetMapping("/saludo")
+    public String enviarSaludo() {
+        // Retorna un mensaje de bienvenida
+        return "¡Bienvenido al mundo de los microservicios!";
+    }
+}
+```
+
+---
+
+## 🛠️ Sesión 08: Buenas prácticas
+
+✅ **Recordatorio rápido**  
+Aplicaste convenciones de código, pruebas unitarias, manejo de logs y control de versiones, asegurando que los proyectos Java sean claros, mantenibles y listos para trabajar en equipo.
+
+💬 **Preguntas detonadoras**
+- ¿Por qué es importante seguir convenciones de código en un proyecto?
+- ¿Qué valida una prueba unitaria en JUnit?
+- ¿Cuál es la función de los logs en una aplicación?
+
+⚙️ **Ejercicio**
+
+Crea una prueba unitaria usando JUnit 5 que verifique que un método `sumar(int a, int b)` retorna la suma correcta de dos números.
+
+```java
+package com.miempresa.buenaspracticas;
+
+// Clase con un método de suma sencillo
+public class Calculadora {
+
+    // Método que suma dos números enteros
+    public int sumar(int a, int b) {
+        return a + b;
+    }
+}
+```
+```java
+package com.miempresa.buenaspracticas;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// Clase de prueba para la Calculadora
+public class CalculadoraTest {
+
+    @Test  // Indica que este método es una prueba unitaria
+    void pruebaSuma() {
+        // Creamos una instancia de la clase a probar
+        Calculadora calc = new Calculadora();
+
+        // Verificamos que la suma de 2 + 3 sea igual a 5
+        assertEquals(5, calc.sumar(2, 3));
+    }
+}
+```
+
 ---
 
 ### 🎤 Espacio abierto 
