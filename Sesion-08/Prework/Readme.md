@@ -13,7 +13,7 @@
 
 👋 Bienvenido/a
 
-El código que funciona es solo el primer paso 🧑‍💻.
+El código que funciona es solo el primer paso 🧑‍💻.  
 El verdadero reto comienza cuando el proyecto crece, más personas se suman al equipo, y necesitas leer, modificar o escalar ese código semanas o meses después.
 
 Ahí es donde entran las buenas prácticas. Son esas pequeñas decisiones diarias (cómo nombras una variable, cómo estructuras tus paquetes, cómo pruebas tu lógica) que marcan la diferencia entre un proyecto que fluye y uno que se convierte en un dolor de cabeza 🤯.
@@ -70,12 +70,12 @@ Bienvenid@ al octavo Prework del módulo. A continuación, te presentamos el tie
 
 Cuando hablamos de diseño en código, no nos referimos solo a hacer que funcione 🟢, sino a hacerlo entendible, mantenible y escalable 🏗️.
 
-💬 Piensa en esto
-Un código mal diseñado puede funcionar hoy, pero se convertirá en difícil de entender mañana (incluso por ti mismo 😅).
-Un buen diseño, en cambio, permite que otros puedan leerlo, modificarlo y mejorarlo sin temores.
+💬 Piensa en esto  
+Un código mal diseñado puede funcionar hoy, pero se convertirá en difícil de entender mañana (incluso por ti mismo 😅).  
+Un buen diseño, en cambio, permite que otros puedan leerlo, modificarlo y mejorarlo sin temores.  
 
-**🎯 Objetivo**
-Escribir código que sea tan fácil de leer como de ejecutar.
+**🎯 Objetivo**  
+Escribir código que sea tan fácil de leer como de ejecutar.  
 
 **🔧 Convenciones de código en Java**
 
@@ -127,7 +127,7 @@ public void imprimirEstadoEdad(int edad) {
 - Código más compacto y expresivo.
 - Separación de lógica en métodos claros.
 
-**🔥 Tip**
+**🔥 Tip**  
 Refactoriza constantemente mientras desarrollas. Es mejor hacer pequeños ajustes continuos que dejar que el código se deteriore con el tiempo.
 
 **🔧 Introducción a patrones de diseño (GoF)**
@@ -199,10 +199,10 @@ Cuando trabajas en proyectos que crecen, las pruebas y los logs no son un extra,
 2. **Pruebas de integración** → Verifican que varias partes del sistema trabajen juntas (ej. servicio + base de datos).
 3. **Pruebas de extremo a extremo (E2E)** → Simulan flujos completos del usuario.
 
-**🔥 Tip**
+**🔥 Tip**  
 
-✔️ Prioriza las pruebas unitarias para validar la lógica interna.
-✔️ Complementa con pruebas de integración para verificar que todo se conecte bien.
+✔️ Prioriza las pruebas unitarias para validar la lógica interna.  
+✔️ Complementa con pruebas de integración para verificar que todo se conecte bien.  
 
 **🧩 JUnit 5: Más allá de lo básico**
 
@@ -233,8 +233,8 @@ void pruebaDivisionPorCero() {
 }
 ```
 
-🤔 ¿Qué se valida?
-Que el método lance la excepción esperada si se intenta dividir por cero.
+🤔 ¿Qué se valida?  
+Que el método lance la excepción esperada si se intenta dividir por cero.  
 
 **🛠️ Pruebas parametrizadas (mismo test con varios datos)**
 ```java
@@ -252,14 +252,14 @@ void pruebaSumaParametrizada(int a, int b, int esperado) {
 
 🤔¿Qué logras?
 
-⚡Evitas repetir código de pruebas
-⚡Ejecutas la misma prueba con diferentes datos.
+⚡Evitas repetir código de pruebas.  
+⚡Ejecutas la misma prueba con diferentes datos.  
 
 **🧩 Mockito: Más allá de los mocks simples**
 
-En proyectos reales, probar la lógica de un servicio suele implicar depender de otros componentes (repositorios, APIs, etc.).
-Mockito es una herramienta que permite simular esas dependencias 🔌, para que pruebes en aislamiento solo lo que te interesa.
-Vamos a ver cómo crear mocks y verificar que las interacciones entre componentes ocurran como deberían.
+En proyectos reales, probar la lógica de un servicio suele implicar depender de otros componentes (repositorios, APIs, etc.).  
+Mockito es una herramienta que permite simular esas dependencias 🔌, para que pruebes en aislamiento solo lo que te interesa.  
+Vamos a ver cómo crear mocks y verificar que las interacciones entre componentes ocurran como deberían.  
 
 **🛠️ Validar interacciones entre servicios**
 
@@ -315,13 +315,13 @@ Los logs son la ventana al comportamiento de tu aplicación en tiempo real 📜.
 **🛠️ ¿Qué es SLF4J?**
 - SLF4J (Simple Logging Facade for Java) es una fachada de logging, es decir, una capa intermedia que unifica la forma en la que escribes logs, sin importar qué framework de logging real uses detrás (puede ser Logback, Log4J, etc.).
 
-💬 Piensalo asi:
+💬 Piensalo asi:  
 SLF4J es como una interfaz universal de enchufes. No importa si estás en Europa o América, SLF4J te da el mismo conector, y luego tú decides qué enchufe local usar (Logback, Log4J...).
 
 🤔 ¿Por qué usar SLF4J?
 
-✅ Porque te permite cambiar de backend de logging sin modificar tu código.
-✅ Es el estándar en proyectos Java modernos, especialmente en aplicaciones con Spring Boot (que usa SLF4J + Logback por defecto).
+✅ Porque te permite cambiar de backend de logging sin modificar tu código.  
+✅ Es el estándar en proyectos Java modernos, especialmente en aplicaciones con Spring Boot (que usa SLF4J + Logback por defecto).  
 
 **🛠️ Buenas prácticas en logging:**
 
@@ -377,7 +377,7 @@ Las pruebas automáticas y los logs son pilares invisibles de cualquier proyecto
 - JUnit 5 y Mockito permiten detectar errores en el momento correcto.
 - SLF4J + Logback ofrecen visibilidad del comportamiento del sistema.
 
-**🔥 Tip final**
+**🔥 Tip final**  
 Integra pruebas en tu flujo de trabajo diario, y asegúrate de que los logs cuenten la historia completa de lo que ocurre en la aplicación.
 
 Porque prevenir y detectar problemas temprano es lo que distingue un proyecto bien gestionado.
@@ -394,12 +394,12 @@ Tener código bien organizado es como tener una oficina ordenada:
 - 🔄 Evitas duplicar archivos innecesarios 
 - 🔍 Y si otra persona entra al proyecto, entiende cómo está estructurado sin perderse.
 
-Pero no solo es cuestión de orden local. En proyectos reales, trabajas en equipo, y cada quien aporta cambios al código constantemente.
-Ahí es donde el control de versiones (Git) entra en acción: permite gestionar los cambios, combinarlos, revisarlos y retroceder si algo sale mal.
+Pero no solo es cuestión de orden local. En proyectos reales, trabajas en equipo, y cada quien aporta cambios al código constantemente.  
+Ahí es donde el control de versiones (Git) entra en acción: permite gestionar los cambios, combinarlos, revisarlos y retroceder si algo sale mal.  
 
 💡 Juntos, la organización del código y el control de versiones hacen que tu proyecto escale sin caos.
 
-**🏗️ Organización de proyectos en Java**
+**🏗️ Organización de proyectos en Java**  
 Java sigue convenciones estándar para organizar el código. Aquí te muestro la estructura típica para un proyecto Java moderno con Spring Boot:
 
 ```plaintext
@@ -430,8 +430,8 @@ src/
 3. Evita crear paquetes genéricos como "utils" sin sentido.
 Solo crea módulos utilitarios específicos si realmente comparten lógica transversal.
 
-**🔥 Tip**
-Si un paquete empieza a crecer demasiado, considera subdividirlo por función.
+**🔥 Tip**  
+Si un paquete empieza a crecer demasiado, considera subdividirlo por función.  
 
 **🔗 Control de versiones con Git: ¿cómo y por qué?**
 
@@ -502,7 +502,7 @@ main  ◄───── merge ─────  feature/crear-reporte
 - **GitHub / GitLab / Bitbucket**→ Gestionan repositorios remotos y PRs.
 - **GitKraken, Sourcetree**→ Interfaces visuales para Git (por si prefieres evitar la línea de comandos).
 
-**Resumen...**
+**Resumen...**  
 Mantener tu proyecto ordenado 🗂️ y tener un flujo de control de versiones bien gestionado 🐙 son las bases para trabajar en equipo sin caos,
 y para que el proyecto crezca de manera sostenible.
 
@@ -600,7 +600,7 @@ No se trata solo de hacer que el código funcione, sino de cómo lo escribes, pr
 - Finalizaste revisando cómo organizar tu proyecto Java de manera profesional y cómo controlar las versiones con Git, para que trabajar en equipo o volver atrás sea seguro y predecible.
 
 
-**🔥 Tip final**
+**🔥 Tip final**  
 Antes de iniciar cualquier nueva funcionalidad, hazte estas tres preguntas:
 
 1. ¿Está clara la responsabilidad de cada módulo que tocaré? (Diseño)
@@ -615,4 +615,4 @@ Porque las buenas prácticas no solo mejoran tu código hoy, sino que facilitan 
 
 ---
 
-⬅️ [**Anterior**](../../Sesion-07/Prework/Readme.md) | [**Siguiente**](../../Readme.md)➡️  
+⬅️ [**Anterior**](../../Sesion-07/Prework/Readme.md) | [**Siguiente**](../../Sesion-09/Prework/Readme.md)➡️  
