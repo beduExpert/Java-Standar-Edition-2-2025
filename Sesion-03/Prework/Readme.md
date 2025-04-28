@@ -138,8 +138,8 @@ nombres.forEach(nombre -> System.out.println(nombre));
 nombres.forEach(System.out::println);
 ```
 
-**🔹 Interfaces funcionales**
-Java trae varias interfaces funcionales listas para usar:
+**🔹 Interfaces funcionales**  
+Java trae varias interfaces funcionales listas para usar:  
 
 | Interfaz        | ¿Qué hace?                              | Ejemplo de uso              |
 |-----------------|-----------------------------------------|-----------------------------|
@@ -153,8 +153,8 @@ Java trae varias interfaces funcionales listas para usar:
 Empezaste a pensar diferente: en lugar de cambiar cosas, creas **nuevas versiones** de ellas. Eso hace que tu código sea **más seguro y fácil de entender.**
 
 **💡 Tip:** Cuando escribas una función, pregúntate:  
-*"¿Este código depende de algo externo? ¿Podría devolver siempre el mismo resultado?"*
-Si la respuesta es sí, vas por buen camino hacia la programación funcional.
+*"¿Este código depende de algo externo? ¿Podría devolver siempre el mismo resultado?"*  
+Si la respuesta es sí, vas por buen camino hacia la programación funcional.  
 
 ---
 
@@ -163,16 +163,16 @@ Si la respuesta es sí, vas por buen camino hacia la programación funcional.
 
 Java es un lenguaje muy robusto, pero uno de sus errores más comunes (y temidos) es el famoso: `NullPointerException`
 
-¿Te ha pasado que tu programa se cae por intentar acceder a algo que "no existe"?
-Es como intentar abrir la puerta de un coche... que no está ahí.
+¿Te ha pasado que tu programa se cae por intentar acceder a algo que "no existe"?  
+Es como intentar abrir la puerta de un coche... que no está ahí.  
 
-Por eso, en esta sección aprenderás a:
-- Evitar errores por `null` con `Optional`
-- Procesar listas y colecciones de forma clara y fluida usando la **Stream API**
+Por eso, en esta sección aprenderás a:  
+- Evitar errores por `null` con `Optional`  
+- Procesar listas y colecciones de forma clara y fluida usando la **Stream API**  
 
-**🛡 ¿Por qué usar `Optional`?**
-`Optional` es una clase que te obliga a pensar en los valores nulos antes de que ocurra el error.
-En lugar de recibir directamente un valor que puede ser `null`, lo envuelves en un "contenedor seguro" que te obliga a manejarlo bien.
+**🛡 ¿Por qué usar `Optional`?**  
+`Optional` es una clase que te obliga a pensar en los valores nulos antes de que ocurra el error.  
+En lugar de recibir directamente un valor que puede ser `null`, lo envuelves en un "contenedor seguro" que te obliga a manejarlo bien.  
 
 🧪 Ejemplo clásico con posible error
 
