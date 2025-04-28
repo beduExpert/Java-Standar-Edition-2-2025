@@ -568,3 +568,6 @@ Esto ademas de mejorar la reutilización del código, también reducira errores 
 
 Usar genéricos es una decisión que se nota cuando el proyecto crece. 🌱🚀
 
+---
+
+⬅️ [**Anterior**](../../Sesion-05/Prework/Readme.md) | [**Siguiente**](../../Sesion-07/Prework/Readme.md)➡️  

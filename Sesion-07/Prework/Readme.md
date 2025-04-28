@@ -488,3 +488,6 @@ Y si decides implementarlos, Spring Boot puede ser tu mejor aliado para iniciar 
 
 Los microservicios son como un equipo bien coordinado: cada uno hace su parte, pero el éxito depende de cómo se comunican y colaboran. 🚀
 
+---
+
+⬅️ [**Anterior**](../../Sesion-06/Prework/Readme.md) | [**Siguiente**](../../Sesion-08/Prework/Readme.md)➡️  

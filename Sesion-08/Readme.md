@@ -26,7 +26,7 @@ Revisamos conceptos clave sobre **principios SOLID**, **refactorización básica
 🔹 Introducción a patrones de diseño (GoF)
 
 📜 **[Ejemplo 01: Aplicación de principios SOLID](Ejemplo-01/Readme.md)**  
-🔥 **[Reto 01: Refactorizar un código basado en SOLID](Reto-01/Readme.md)**  
+🔥 **[Reto 01: Refactorizar un procesador de pagos aplicando SOLID](Reto-01/Readme.md)**  
 
 ---
 
