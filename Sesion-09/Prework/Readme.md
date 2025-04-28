@@ -106,7 +106,7 @@ No solo vas a escribir código que funcione: vas a estructurar una solución pro
 
 **Temas clave a repasar**
 
-1. 🧱 **JPA + H2: Persistencia de datos**
+1. 🧱 **JPA + H2: Persistencia de datos**  
 JPA permite mapear objetos Java a tablas en bases de datos. Usaremos H2, una base de datos en memoria para pruebas.
 
 ```java
@@ -140,7 +140,7 @@ validacion.thenAccept(resultado -> {
 });
 ```
 
-3. **🧹 Programación funcional: Streams**
+3. **🧹 Programación funcional: Streams**  
 Facilita el procesamiento de colecciones de manera declarativa (filtrar, mapear, reducir).
 
 ```java
@@ -148,7 +148,7 @@ prestamos.stream()
     .filter(p -> p.getEstado().equals("APROBADO"))
     .forEach(p -> System.out.println(p.getCliente()));
 ```
-4. **📜 Logs en contexto: SLF4J**
+4. **📜 Logs en contexto: SLF4J**  
 Permite registrar mensajes importantes durante la ejecución, facilitando la depuración.
 
 ```java
@@ -157,7 +157,7 @@ private static final Logger logger = LoggerFactory.getLogger(PrestamoService.cla
 logger.info("Evaluando préstamo para cliente: {}", cliente);
 ```
 
-5. **🧪 Pruebas unitarias: JUnit 5 + Mockito**
+5. **🧪 Pruebas unitarias: JUnit 5 + Mockito**  
 Validan que las piezas del sistema (servicios, lógica) funcionen correctamente.
 
 ```java
