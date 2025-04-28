@@ -19,6 +19,8 @@
 | 06 | 🧬 [Clases genéricas](Sesion-06/Prework/Readme.md) |
 | 07 | 🧩 [Microservicios](Sesion-07/Prework/Readme.md) |
 | 08 | ✅ [Buenas prácticas](Sesion-08/Prework/Readme.md) |
+| 09 | 🧭 [Mentorship 1](Sesion-09/Prework/Readme.md) |
+| 10 | 🔄 [Mentorship 2](Sesion-10/Prework/Readme.md) |
 
 ## 📚 Sesiones
 
@@ -32,6 +34,8 @@
 | 06 | 🧬 [Clases genéricas](Sesion-06/Readme.md) |
 | 07 | 🧩 [Microservicios](Sesion-07/Readme.md) |
 | 08 | ✅ [Buenas prácticas](Sesion-08/Readme.md) |
+| 09 | 🔁 [Mentorship 1](Sesion-09/Readme.md) |
+| 10 | 🎯 [Mentorship 2](Sesion-10/Readme.md) |
 
 ---
 
