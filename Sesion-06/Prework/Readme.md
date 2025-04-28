@@ -15,12 +15,12 @@
 
 En esta sesión vamos a descubrir el secreto para escribir código flexible, reutilizable y seguro en Java: los genéricos.
 
-¿Te imaginas tener una misma clase o método que funcione para cualquier tipo de dato, sin repetir código?
-Eso es precisamente lo que logras con los genéricos. Son como moldes que puedes adaptar según el material que necesites:
-puedes tener listas de enteros, listas de cadenas, listas de objetos personalizados, todo usando la misma estructura base.
+¿Te imaginas tener una misma clase o método que funcione para cualquier tipo de dato, sin repetir código?  
+Eso es precisamente lo que logras con los genéricos. Son como moldes que puedes adaptar según el material que necesites:  
+puedes tener listas de enteros, listas de cadenas, listas de objetos personalizados, todo usando la misma estructura base.  
 
-Los genéricos son fundamentales en Java y los encontrarás en casi todas las librerías estándar (por ejemplo, `List<T>`,`Map<K, V>`, etc.).
-Hoy aprenderás cómo funcionan y por qué son tan usados.
+Los genéricos son fundamentales en Java y los encontrarás en casi todas las librerías estándar (por ejemplo, `List<T>`,`Map<K, V>`, etc.).  
+Hoy aprenderás cómo funcionan y por qué son tan usados.  
 
 ---
 
@@ -64,7 +64,7 @@ Bienvenid@ al sexto Prework del módulo. A continuación, te presentamos el tiem
 #### 📚 Tema 01. Introducción a los genéricos en Java
 ##### ⏳ 10 minutos de lectura
 
-**📌 ¿Qué son los genéricos?**
+**📌 ¿Qué son los genéricos?**  
 Los genéricos en Java permiten definir clases, interfaces y métodos que se adaptan a diferentes tipos de datos, sin sacrificar la seguridad en tiempo de compilación.
 
 En lugar de crear clases o métodos distintos para cada tipo de dato (por ejemplo, una clase para enteros, otra para cadenas, otra para objetos personalizados), los genéricos te permiten crear una sola estructura que puede funcionar con cualquiera de esos tipos.
@@ -81,9 +81,9 @@ Visualízalo así:
   </tr>
 </table>
 
-**🧩 ¿Cómo se representan?**
-Los genéricos utilizan letras mayúsculas entre corchetes angulares `< >` para representar parámetros de tipo.
-El más común es `T` (de Type), pero puedes usar otros como:
+**🧩 ¿Cómo se representan?**  
+Los genéricos utilizan letras mayúsculas entre corchetes angulares `< >` para representar parámetros de tipo.  
+El más común es `T` (de Type), pero puedes usar otros como:  
 
 | Letra | Significado común
 |-------|---------------------------------------|
@@ -102,9 +102,9 @@ Sin genéricos, tendrías que trabajar con Object, el tipo base de Java, lo cual
 
 Con genéricos:
 
-✅ El compilador revisa los tipos por ti, previniendo errores.
-✅ Evitas castings innecesarios.
-✅ Haces tu código más mantenible y adaptable.
+✅ El compilador revisa los tipos por ti, previniendo errores.  
+✅ Evitas castings innecesarios.  
+✅ Haces tu código más mantenible y adaptable.  
 
 | 👎 Sin genéricos	                                   | 👍Con genéricos                                            |
 |-------------------------------------------------------|------------------------------------------------------------|
@@ -134,10 +134,10 @@ public class Caja<T> {
 }
 ```
 
-👀 ¿Qué sucede aquí?
+👀 ¿Qué sucede aquí?  
 
-- `T` es un parámetro de tipo (puede ser cualquier tipo que elijas).
-- Al usar la clase, decides el tipo específico:
+- `T` es un parámetro de tipo (puede ser cualquier tipo que elijas).  
+- Al usar la clase, decides el tipo específico:  
 
 ```java
 Caja<String> cajaDeTexto = new Caja<>();
@@ -155,7 +155,7 @@ public static <T> void imprimirArray(T[] array) {
     }
 }
 ```
-👀 Este método funciona con cualquier tipo de array:
+👀 Este método funciona con cualquier tipo de array:  
 
 ```java
 String[] nombres = {"Ana", "Luis"};
@@ -198,9 +198,9 @@ Adoptar genéricos desde el diseño inicial evita refactorizaciones a futuro cua
 #### 📚 Tema 02. Wildcards y restricciones
 ##### ⏳ 10 minutos de lectura
 
-**📌 ¿Qué son los wildcards en Java?**
-Los wildcards (`?`) permiten que los genéricos sean aún más flexibles, aceptando múltiples tipos de datos relacionados entre sí sin especificar uno exacto.
-Son especialmente útiles cuando quieres leer datos de una colección, pero no necesitas modificarla o cuando diferentes tipos comparten una misma jerarquía.
+**📌 ¿Qué son los wildcards en Java?**  
+Los wildcards (`?`) permiten que los genéricos sean aún más flexibles, aceptando múltiples tipos de datos relacionados entre sí sin especificar uno exacto.  
+Son especialmente útiles cuando quieres leer datos de una colección, pero no necesitas modificarla o cuando diferentes tipos comparten una misma jerarquía.  
 
 Visualizalo asi:
 <table style="border-collapse: collapse;">
@@ -250,10 +250,10 @@ Este wildcard indica:
 
 Porque no sabes el tipo exacto de los objetos en esa lista (pueden ser `Gerente`, `Director`...), y agregar algo incorrecto podría causar problemas.
 
-**🧩 Situación 2: Necesitas agregar elementos**
+**🧩 Situación 2: Necesitas agregar elementos**  
 
-Ahora quieres crear un método que agregue nuevos empleados a una lista.
-Aquí no te importa si la lista es de `Empleado` o algo más genérico (como `Object`), pero debes poder insertar empleados.
+Ahora quieres crear un método que agregue nuevos empleados a una lista.  
+Aquí no te importa si la lista es de `Empleado` o algo más genérico (como `Object`), pero debes poder insertar empleados.  
 
 Usarías:
 
@@ -281,16 +281,16 @@ Esto es como decir:
 
 > *"Pásame cualquier lista de cualquier tipo. No me importa qué contiene, solo voy a hacer operaciones básicas."*
 
-**🧠 Comparación mental**
+**🧠 Comparación mental**  
 
 - `? extends Tipo` → Lees datos (ej. hacer reportes).
 - `? super Tipo` → Agregas datos (ej. registrar empleados).
 - `?` → No te interesa el tipo, solo usas la colección de forma básica.
 
-**🚀 Tip para recordar**
+**🚀 Tip para recordar**  
 
-📖 Si quieres leer, piensa en `extends` (leer hacia arriba en la jerarquía).
-✍️ Si quieres escribir, piensa en `super` (agregar hacia abajo en la jerarquía).
+📖 Si quieres leer, piensa en `extends` (leer hacia arriba en la jerarquía).  
+✍️ Si quieres escribir, piensa en `super` (agregar hacia abajo en la jerarquía).  
 
 **🏗️ Restricciones en los genéricos**
 
@@ -333,7 +333,7 @@ Los wildcards te ofrecen una forma adaptable de trabajar con colecciones de dife
 
 Además, aprendiste a restringir los tipos genéricos para asegurar que solo ciertos tipos puedan ser utilizados.
 
-**🔥 Tip final** 
+**🔥 Tip final**  
 Cuando diseñes interfaces o servicios genéricos que deban interactuar con varias entidades relacionadas, considera usar wildcards para flexibilizar la lectura o escritura, pero sin perder el control sobre los tipos.
 
 Esto es útil, por ejemplo, cuando trabajas con jerarquías de clases (como Empleado, Gerente, Director).
@@ -372,8 +372,8 @@ lista.add("Hola");
 String texto = lista.get(0); // No necesitas casting
 ```
 
-💫 Ventaja:
-El compilador verifica los tipos por ti, reduciendo errores en tiempo de ejecución.
+💫 Ventaja:  
+El compilador verifica los tipos por ti, reduciendo errores en tiempo de ejecución.  
 
 **🏗️ Buena práctica 2: Diseñar clases reutilizables**
 
@@ -405,8 +405,8 @@ Repositorio<Integer> repoNumeros = new Repositorio<>();
 repoNumeros.agregar(100);
 ```
 
-💯 Beneficio:
-Una sola estructura sirve para cualquier tipo de entidad (productos, clientes, números).
+💯 Beneficio:  
+Una sola estructura sirve para cualquier tipo de entidad (productos, clientes, números).  
 
 **🏗️ Buena práctica 3: Limitar el tipo aceptado (restricciones)**
 Si una clase o método solo debe aceptar ciertos tipos (por ejemplo, solo números), usa restricciones para evitar usos indebidos.
@@ -426,8 +426,8 @@ Calculadora<Integer> calcInt = new Calculadora<>(); // ✅
 Calculadora<String> calcStr = new Calculadora<>();  // ❌ Error en compilación
 ```
 
-💯 Beneficio:
-Previenes errores en etapas tempranas (antes de que el programa corra).
+💯 Beneficio:  
+Previenes errores en etapas tempranas (antes de que el programa corra).  
 
 **🏗️ Buena práctica 4: Combinar wildcards para flexibilidad**
 
@@ -446,38 +446,37 @@ public void imprimirLista(List<? extends Number> lista) {
 - Puedes pasarle `List<Integer>`, `List<Double>`, etc.
 - No puedes modificar la lista, pero puedes leer sin problemas.
 
-🧐 Situación común
+🧐 Situación común  
 Este patrón es frecuente en reportes o validaciones, donde solo necesitas consultar los datos.
 
 **🧩 Casos de uso comunes en el mundo real**
 
 1. Colecciones en APIs:
-- Cuando defines servicios REST que retornan listas de objetos (productos, usuarios, etc.).
-- Ejemplo: `List<Producto>`.
+    - Cuando defines servicios REST que retornan listas de objetos (productos, usuarios, etc.).
+    - Ejemplo: `List<Producto>`.
 
 2. Servicios genéricos en microservicios:
-- Para manejar diferentes entidades (clientes, órdenes, facturas) usando repositorios o controladores genéricos.
+    - Para manejar diferentes entidades (clientes, órdenes, facturas) usando repositorios o controladores genéricos.
 
 3. Validadores de datos:
-- Puedes crear un validador genérico para cualquier tipo de entrada.
+    - Puedes crear un validador genérico para cualquier tipo de entrada.
 
 4. Integración con bases de datos:
-- Repositorios o DAOs que manejan diferentes tablas usando una estructura base genérica.
+    - Repositorios o DAOs que manejan diferentes tablas usando una estructura base genérica.
 
 5. Procesamiento de colecciones con wildcards:
-- Para trabajar con jerarquías de objetos (ej. `Empleado`, `Gerente`, `Director`), especialmente en reportes o filtros.
+    - Para trabajar con jerarquías de objetos (ej. `Empleado`, `Gerente`, `Director`), especialmente en reportes o filtros.
 
 **Resumen...**
 
 Los genéricos son parte fundamental de Java moderno, y su uso adecuado:
 
-- ✅ Facilita el mantenimiento del código (evitas duplicar estructuras).
-- ✅ Mejora la seguridad en compilación (menos errores en tiempo de ejecución).
-- ✅ Permite crear componentes reutilizables para cualquier tipo de datos.
+- ✅ Facilita el mantenimiento del código (evitas duplicar estructuras).  
+- ✅ Mejora la seguridad en compilación (menos errores en tiempo de ejecución).  
+- ✅ Permite crear componentes reutilizables para cualquier tipo de datos.  
 
-**🔥 Tip final** 
-Si te encuentras repetiendo clases o métodos para diferentes tipos de datos,
-o forzando castings, detente y piensa:
+**🔥 Tip final**  
+Si te encuentras repetiendo clases o métodos para diferentes tipos de datos, o forzando castings, detente y piensa:
 
 > *¿Podría simplificar esto usando genéricos?*
 
@@ -488,71 +487,71 @@ Adoptar genéricos en tus interfaces, repositorios y utilerías es una decisión
 #### 🧠 Actividad de reforzamiento
 
 
-**🧩 Instrucciones**
-1. Lee con atención cada caso hipotético que se presenta en las preguntas.
-2. En cada situación, analiza qué opción es la más adecuada según el uso de genéricos en Java.
-3. Selecciona la respuesta correcta entre las opciones propuestas.
-4. Reflexiona por qué elegiste esa respuesta y cómo podrías aplicar esa lógica en un proyecto real.
+**🧩 Instrucciones**  
+1. Lee con atención cada caso hipotético que se presenta en las preguntas.  
+2. En cada situación, analiza qué opción es la más adecuada según el uso de genéricos en Java.  
+3. Selecciona la respuesta correcta entre las opciones propuestas.  
+4. Reflexiona por qué elegiste esa respuesta y cómo podrías aplicar esa lógica en un proyecto real.  
 
-**💡 Tip**
-Si dudas entre dos opciones, piensa qué objetivo quieres lograr:
-- ¿Necesitas leer o escribir datos en una colección?
-- ¿Quieres controlar el tipo de dato o permitir mayor flexibilidad?
+**💡 Tip**  
+Si dudas entre dos opciones, piensa qué objetivo quieres lograr:  
+- ¿Necesitas leer o escribir datos en una colección?  
+- ¿Quieres controlar el tipo de dato o permitir mayor flexibilidad?  
 
-**🔹 Pregunta 1: Uso de genéricos en repositorios**
+**🔹 Pregunta 1: Uso de genéricos en repositorios**  
 
-Estás creando una clase de repositorio que almacenará diferentes tipos de objetos (Clientes, Productos, Órdenes). Quieres evitar duplicar código y permitir que el mismo repositorio se adapte a cualquier tipo de entidad.
+Estás creando una clase de repositorio que almacenará diferentes tipos de objetos (Clientes, Productos, Órdenes). Quieres evitar duplicar código y permitir que el mismo repositorio se adapte a cualquier tipo de entidad.  
 
-¿Qué enfoque deberías tomar?
+¿Qué enfoque deberías tomar?  
 
-a) Crear una clase base `Repositorio` que use `Object` y hacer castings cuando necesites recuperar elementos.
-b) Crear una clase genérica `Repositorio<T>` y definir el tipo en cada uso.
-c) Crear una clase `Repositorio` para cada entidad específica (RepositorioClientes, RepositorioProductos).
+a) Crear una clase base `Repositorio` que use `Object` y hacer castings cuando necesites recuperar elementos.  
+b) Crear una clase genérica `Repositorio<T>` y definir el tipo en cada uso.  
+c) Crear una clase `Repositorio` para cada entidad específica (RepositorioClientes, RepositorioProductos).  
 
 
-**🔹 Pregunta 2: Uso de wildcards para listas jerárquicas**
+**🔹 Pregunta 2: Uso de wildcards para listas jerárquicas**  
 
-Tienes una jerarquía de clases donde `Empleado` es la clase base, y `Gerente` y `Director` son subclases. Debes diseñar un método que reciba una lista de empleados o cualquier subtipo para leer datos y generar un reporte.
+Tienes una jerarquía de clases donde `Empleado` es la clase base, y `Gerente` y `Director` son subclases. Debes diseñar un método que reciba una lista de empleados o cualquier subtipo para leer datos y generar un reporte.  
 
-¿Qué tipo de wildcard usarías?
+¿Qué tipo de wildcard usarías?  
 
-a) `List<Empleado>`
-b) `List<? extends Empleado>`
-c) `List<? super Empleado>`
+a) `List<Empleado>`  
+b) `List<? extends Empleado>`  
+c) `List<? super Empleado>`  
 
-**🔹 Pregunta 3: Insertar elementos en una colección usando wildcards**
+**🔹 Pregunta 3: Insertar elementos en una colección usando wildcards**  
 
 Estás desarrollando un módulo donde necesitas agregar objetos `Integer` a una lista, pero no sabes si la lista será de Integer, Number o incluso Object.
-Tu único requisito es poder insertar números enteros.
+Tu único requisito es poder insertar números enteros.  
 
-¿Qué wildcard es el adecuado?
+¿Qué wildcard es el adecuado?  
 
-a) `List<? super Integer>`
-b) `List<? extends Integer>`
-c) `List<?>`
+a) `List<? super Integer>`  
+b) `List<? extends Integer>`  
+c) `List<?>`  
 
-**🔹 Pregunta 4: Método genérico para validar diferentes tipos**
-Vas a crear un método genérico que tome cualquier lista de elementos y valide su longitud. No necesitas saber qué tipo de elementos contiene, solo contar cuántos hay.
+**🔹 Pregunta 4: Método genérico para validar diferentes tipos**  
+Vas a crear un método genérico que tome cualquier lista de elementos y valide su longitud. No necesitas saber qué tipo de elementos contiene, solo contar cuántos hay.  
 
-¿Cuál sería la mejor firma para el método?
+¿Cuál sería la mejor firma para el método?  
 
-a) `public <T> void validarLista(List<T> lista)`
-b) `public void validarLista(List<?> lista)`
-c) `public void validarLista(List<Object> lista)`
+a) `public <T> void validarLista(List<T> lista)`  
+b) `public void validarLista(List<?> lista)`  
+c) `public void validarLista(List<Object> lista)`  
 
 
-**🔹 Pregunta 5: Restricción de tipos en genéricos**
-Debes crear una calculadora genérica que solo acepte números (Integer, Double, Float, etc.). El objetivo es prevenir que se usen tipos no numéricos como String.
+**🔹 Pregunta 5: Restricción de tipos en genéricos**  
+Debes crear una calculadora genérica que solo acepte números (Integer, Double, Float, etc.). El objetivo es prevenir que se usen tipos no numéricos como String.  
 
-¿Cómo aplicarías la restricción de tipos?
+¿Cómo aplicarías la restricción de tipos?  
 
-a) `<T> class Calculadora { ... }`
-b) `<T extends Object> class Calculadora { ... }`
-c) `<T extends Number> class Calculadora { ... }`
+a) `<T> class Calculadora { ... }`  
+b) `<T extends Object> class Calculadora { ... }`  
+c) `<T extends Number> class Calculadora { ... }`  
 
 ---
 
-#### **📝 Cierre**
+#### **📝 Cierre**  
 
 Hoy has aprendido a crear estructuras adaptables y seguras usando genéricos en Java. Ahora sabes que no necesitas escribir código diferente para cada tipo de dato, sino que puedes diseñar componentes que se ajusten a lo que el proyecto demande.
 
@@ -561,7 +560,7 @@ Además, exploraste cómo ampliar o limitar esa flexibilidad con los wildcards (
 - Leer o escribir colecciones de objetos relacionados,
 - Definir límites en las clases o métodos para asegurar el tipo correcto.
 
-**🔥 Tip final**
+**🔥 Tip final**  
 La próxima vez que diseñes una API, repositorio, o servicio compartido, considera si tu código puede beneficiar a otros módulos o equipos con una estructura genérica bien pensada.
 
 Esto ademas de mejorar la reutilización del código, también reducira errores y acelerara el desarrollo cuando surgen nuevas necesidades.
