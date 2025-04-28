@@ -13,8 +13,8 @@
 
 👋 Bienvenido/a
 
-¿Te imaginas si cada vez que pides comida a domicilio, tu día se detuviera hasta que llegara el repartidor?
-¡Qué pérdida de tiempo! 🕒
+¿Te imaginas si cada vez que pides comida a domicilio, tu día se detuviera hasta que llegara el repartidor?  
+¡Qué pérdida de tiempo! 🕒  
 
 Eso mismo pasa en las aplicaciones cuando hacen tareas que tardan demasiado y bloquean todo el flujo. Pero no te preocupes, aquí aprenderás cómo liberar a tus programas de esas esperas innecesarias usando **procesos asíncronos**.
 
@@ -74,8 +74,8 @@ Ambas ayudan a que las aplicaciones hagan varias cosas a la vez, pero lo logran 
 
 Para poder entender mejor esto, hableremos de Latencia y tareas no bloqueantes 
 
-**🟡 ¿Qué es la latencia?**
-La latencia es el tiempo que tarda una tarea en completarse desde que se inicia hasta que se obtiene una respuesta.
+**🟡 ¿Qué es la latencia?**  
+La latencia es el tiempo que tarda una tarea en completarse desde que se inicia hasta que se obtiene una respuesta.  
 
 Piensa en:
 - Hacer una consulta a una API externa
@@ -97,9 +97,9 @@ Cuando una tarea es bloqueante, el flujo del programa se detiene hasta que esa t
 | API bloqueante (espera activa)  | La aplicación se queda congelada.     |
 | Operación de archivo bloqueante | No puedes hacer otra cosa en ese hilo.|
 
-🔍 Problema: El usuario siente que la app es lenta, incluso si solo espera unos segundos.
+🔍 Problema: El usuario siente que la app es lenta, incluso si solo espera unos segundos.  
 
-**🟢 Tarea no bloqueante: cuando el sistema sigue funcionando**
+**🟢 Tarea no bloqueante: cuando el sistema sigue funcionando**  
 
 Una tarea no bloqueante lanza la operación (como la consulta al API), pero no espera a que termine para seguir haciendo otras cosas.
 
@@ -112,26 +112,26 @@ Una tarea no bloqueante lanza la operación (como la consulta al API), pero no e
 | API no bloqueante                  | El usuario sigue interactuando con la app.|
 | Operación de archivo no bloqueante | El sistema puede atender otras tareas.    |
 
-🔑 **Clave de la asincronía**
+🔑 **Clave de la asincronía**  
 
 Liberar el flujo principal mientras las tareas lentas trabajan en segundo plano.
 
 > **⚡ Asincronía = tareas no bloqueantes + buen uso del tiempo**
 
-**🎯 ¿Por qué importa esto?**
+**🎯 ¿Por qué importa esto?**  
 
 - Mejora la experiencia del usuario: El sistema no se congela aunque algo tarde en completarse.
 - Aprovechas mejor los recursos: En lugar de tener hilos esperando sin hacer nada, liberas esos recursos para otras tareas.
 
-**💡 Tip mental**
+**💡 Tip mental**  
 Si ves que tu app “espera” mucho, piensa en hacer la tarea no bloqueante usando asincronía.
 
 **🔁 Uso combinado con hilos**
 
-📌 ¿Qué son los hilos?
+📌 ¿Qué son los hilos?  
 Un hilo es una unidad de ejecución dentro de un proceso. Cuando tienes varios hilos, puedes realizar varias tareas al mismo tiempo (o casi, dependiendo del procesador).
 
-**🔄 Concurrencia = varios hilos trabajando a la vez**
+**🔄 Concurrencia = varios hilos trabajando a la vez**  
 
 La concurrencia suele involucrar múltiples hilos que trabajan de forma paralela o intercalada.
 
@@ -140,7 +140,7 @@ La concurrencia suele involucrar múltiples hilos que trabajan de forma paralela
 
 ⚠️ Importante: Cada hilo consume recursos (memoria, CPU). Si creas demasiados hilos, puedes saturar el sistema.
 
-**🚀 Asincronía + hilos: cómo trabajan juntos**
+**🚀 Asincronía + hilos: cómo trabajan juntos**  
 
 La asincronía puede usar hilos, pero no depende solo de ellos. Su objetivo es que una tarea no detenga el flujo, independientemente de cuántos hilos uses.
 
@@ -157,7 +157,7 @@ La asincronía puede usar hilos, pero no depende solo de ellos. Su objetivo es q
 | Una tarea tarda pero no debe bloquear	| Asincronía               |
 | Mezcla de ambos casos	                | Concurrencia + asincronía |
 
-**Resumen...**
+**Resumen...**  
 
 Ahora comprendes por qué la latencia es un desafío y cómo las tareas no bloqueantes permiten que el sistema siga funcionando sin congelarse.
 También viste cómo la concurrencia (con hilos) y la asincronía pueden combinarse para lograr eficiencia y fluidez en tus aplicaciones.
@@ -176,12 +176,12 @@ JEn las aplicaciones modernas, a menudo tienes tareas que tardan:
 consultar una API, leer archivos pesados, o procesar grandes cantidades de datos.
 Pero no quieres que tu app se quede esperando. Aquí es donde entra CompletableFuture, una herramienta poderosa de Java para lanzar, controlar y combinar tareas asíncronas de forma fluida y elegante.
 
-Piensa en `CompletableFuture` como una promesa:
-*"Voy a hacer esto... y cuando esté listo, te aviso."*
+Piensa en `CompletableFuture` como una promesa:  
+*"Voy a hacer esto... y cuando esté listo, te aviso."*  
 
-**🧩 ¿Qué es `CompletableFuture`?**
+**🧩 ¿Qué es `CompletableFuture`?**  
 
-Es una clase de Java que te permite:
+Es una clase de Java que te permite:  
 - Ejecutar tareas en segundo plano sin bloquear el hilo principal.
 - Encadenar acciones que se ejecutan cuando la tarea esté lista.
 - Combinar múltiples tareas y coordinar sus resultados.
@@ -208,8 +208,8 @@ CompletableFuture<String> tarea = CompletableFuture.supplyAsync(() -> {
 - Lanza una tarea asíncrona (en otro hilo) que devuelve un resultado después de 2 segundos.
 - Devuelve un futuro (un objeto `CompletableFuture<String>`) que contendrá ese resultado cuando esté listo.
 
-**🚨 Importante**
-La tarea **no bloquea el hilo principal**. Puedes seguir haciendo otras cosas mientras el resultado se procesa.
+**🚨 Importante**  
+La tarea **no bloquea el hilo principal**. Puedes seguir haciendo otras cosas mientras el resultado se procesa.  
 
 **🔗 Encadenamiento con `thenApply`, `thenAccept`, `thenCompose`**
 
@@ -236,10 +236,10 @@ saludo
     .thenCompose(s -> CompletableFuture.supplyAsync(() -> s + " Mundo")) // Crea otra tarea asíncrona
     .thenAccept(System.out::println); // Resultado final: "Hola Mundo"
 ```
-🤔 ¿Por qué `thenCompose`?
+🤔 ¿Por qué `thenCompose`?  
 Cuando el siguiente paso también lanza una tarea asíncrona, `thenCompose` evita tener futuros anidados.
 
-⚠️ Manejo de errores con `exceptionally`
+⚠️ Manejo de errores con `exceptionally`  
 Las cosas pueden fallar (una API no responde, un archivo no existe…). `CompletableFuture` te permite manejar esos errores sin romper tu app.
 
 🧪 Ejemplo con error controlado
@@ -252,7 +252,7 @@ tarea
     .exceptionally(e -> "Error controlado: " + e.getMessage()) // Maneja el error y devuelve valor alternativo
     .thenAccept(System.out::println); // Imprime: Error controlado: Algo salió mal
 ```
-🎯 Con `exceptionally` puedes:
+🎯 Con `exceptionally` puedes:  
 
 - Capturar el error
 - Devolver un valor alternativo para mantener el flujo funcionando
@@ -265,7 +265,7 @@ tarea
 | Procesamiento de archivos grandes	| Para permitir que otras tareas sigan mientras termina. |
 | Coordinar múltiples tareas	    | Puedes combinar resultados o manejar dependencias.     |
 
-🔄 Flujo visual de `CompletableFuture`
+🔄 Flujo visual de `CompletableFuture`  
 
 ```plaintext
 Lanza tarea asíncrona → Encadena pasos → Maneja errores → Resultado final
@@ -287,7 +287,7 @@ Como si lanzaras un boomerang:
 Con `CompletableFuture`, tu código no espera: avanza.
 Puedes lanzar tareas en segundo plano, transformar los resultados, encadenar procesos y manejar errores sin bloquear tu aplicación. Esto permite que tu sistema siga respondiendo mientras tareas lentas se ejecutan por detrás.
 
-**💡 Tip final:**
+**💡 Tip final:**  
 Cuando pienses:
 
 >*"¿Qué hago mientras espero este resultado?"*
@@ -344,9 +344,9 @@ CompletableFuture<Void> escrituraArchivo = CompletableFuture.runAsync(() -> {
 
 **💡 Tip:** Usa esto en sistemas donde guardar datos puede tardar, pero no quieres frenar al usuario.
 
-🌐 Simulación de llamadas a servicios externos
-Imagina que tu aplicación consulta un servicio externo (como el clima o un sistema de pagos).
-Estas llamadas pueden tardar segundos y bloquear si no las haces bien.
+🌐 Simulación de llamadas a servicios externos  
+Imagina que tu aplicación consulta un servicio externo (como el clima o un sistema de pagos).  
+Estas llamadas pueden tardar segundos y bloquear si no las haces bien.  
 
 🧪 Ejemplo: Simular una consulta a un servicio externo
 
@@ -422,9 +422,9 @@ Eso mantiene tu aplicación fluida, rápida y profesional.
 
 #### 🧠 Actividad de reforzamiento
 
-**Actividad: Elige la mejor estrategia – Asincronía vs Concurrencia vs Bloqueante**
+**Actividad: Elige la mejor estrategia – Asincronía vs Concurrencia vs Bloqueante**  
 
-**🎯 Objetivo**
+**🎯 Objetivo**  
 Aplicar lo aprendido sobre procesos asíncronos y concurrencia para decidir cuál estrategia usar en situaciones reales.
 
 **🧩 Instrucciones**
@@ -491,14 +491,14 @@ Diseñas una app que monitorea sensores en tiempo real (temperatura, presión, e
 
 #### **📝 Cierre**
 
-¡Felicidades! 🎉
+¡Felicidades! 🎉  
 Ahora sabes cómo hacer que tus programas sean más ágiles y eficientes usando asincronía.
 
 No todo tiene que esperar. Puedes lanzar tareas, seguir trabajando, y recoger los resultados cuando estén listos.
 
 Lo mejor de todo es que puedes manejar errores sin romper tu flujo, encadenar acciones y crear aplicaciones resistentes y rápidas.
 
-💡 Por último:
+💡 Por último:  
 Cuando tu app tenga que hacer algo lento o externo, déjala fluir. Usa asincronía para que el usuario nunca sienta que espera… aunque tu sistema siga trabajando por detrás.
 
 ---
