@@ -69,16 +69,16 @@ La programación reactiva es un paradigma de programación diseñado para maneja
 
 - **Programación reactiva** → Es como escuchar la radio: los datos (música, noticias) van llegando mientras escuchas, y no sabes cuándo terminarán.
 
-🤓 Clave mental:
-En los Streams tradicionales esperas tener todos los datos para procesarlos.
-En la programación reactiva, procesas los datos conforme llegan, incluso si nunca se terminan.
+🤓 Clave mental:  
+En los Streams tradicionales esperas tener todos los datos para procesarlos.  
+En la programación reactiva, procesas los datos conforme llegan, incluso si nunca se terminan.  
 
 
-**🧠 ¿Por qué existe la programación reactiva?**
-Porque las aplicaciones modernas ya no solo procesan datos estáticos. Ahora:
-- Reciben eventos constantes (usuarios conectados, sensores, mensajes).
-- Se enfrentan a altas cargas de tráfico que pueden variar (usuarios en picos, horarios pico).
-- Necesitan responder rápido sin saturar los recursos.
+**🧠 ¿Por qué existe la programación reactiva?**  
+Porque las aplicaciones modernas ya no solo procesan datos estáticos. Ahora:  
+- Reciben eventos constantes (usuarios conectados, sensores, mensajes).  
+- Se enfrentan a altas cargas de tráfico que pueden variar (usuarios en picos, horarios pico).  
+- Necesitan responder rápido sin saturar los recursos.  
 
 Ejemplo:
 
@@ -116,16 +116,16 @@ numeros.stream().map(n -> n * 2).forEach(System.out::println);
 Flux<Integer> flujoNumeros = Flux.fromIterable(Arrays.asList(1, 2, 3, 4, 5));
 flujoNumeros.map(n -> n * 2).subscribe(System.out::println);
 ```
-👀 Diferencia:
+👀 Diferencia:  
 El Flux puede seguir emitiendo números indefinidamente, no está limitado a colecciones finitas.
 
-**Resumen...**
+**Resumen...**  
 
 Ya viste que la programación reactiva es ideal para sistemas modernos que nunca paran de recibir datos:
 usuarios conectados, sensores, flujos de eventos, etc.
 A diferencia de los Streams tradicionales, reaccionas en tiempo real y controlas el flujo de datos para no saturarte.
 
-**🔥 Tip final**
+**🔥 Tip final**  
 Si tienes un sistema donde los datos nunca dejan de llegar (eventos, conexiones, mensajes), no los esperes todos.
 Con programación reactiva, procesas al vuelo y mantienes la fluidez. 🚀
 
@@ -184,8 +184,8 @@ Con programación reactiva, procesas al vuelo y mantienes la fluidez. 🚀
 
 **🔗 Operadores en acción: `map`, `flatMap`, `filter`**
 
-En la programación reactiva, los operadores son como herramientas de una fábrica:
-Transforman, filtran y combinan los datos mientras fluyen.
+En la programación reactiva, los operadores son como herramientas de una fábrica:  
+Transforman, filtran y combinan los datos mientras fluyen.  
 
 **🧪 Ejemplo 1: Filtrar y transformar datos con Flux**
 
@@ -246,9 +246,9 @@ Antes de la subscripción, el flujo es como una fábrica lista pero apagada. Cua
 
 **🏆 Buenas prácticas en Reactor / RxJava**
 
-✔️ Prefiere operadores reactivos (`map`, `flatMap`, `filter`) en lugar de lógica imperativa.
-✔️ No olvides manejar errores con `onErrorResume` o `doOnError`.
-✔️ Usa `take(n)` o `limitRate()` si quieres controlar cuántos elementos procesas.
+✔️ Prefiere operadores reactivos (`map`, `flatMap`, `filter`) en lugar de lógica imperativa.  
+✔️ No olvides manejar errores con `onErrorResume` o `doOnError`.  
+✔️ Usa `take(n)` o `limitRate()` si quieres controlar cuántos elementos procesas.  
 
 **Resumen...**
 
@@ -262,7 +262,7 @@ Ya conoces las bases de las librerías reactivas en Java:
 
 Sabes que el flujo solo arranca cuando te suscribes, dándote el control total.
 
-**🔥 Tip final**
+**🔥 Tip final**  
 Si necesitas combinar asincronía + flujos continuos + control preciso, Reactor (o RxJava) es la herramienta ideal 🫶
 
 ---
@@ -305,7 +305,7 @@ Flux.range(1, 1000)
 
 **🌟 Tip**: Usa backpressure cuando proceses grandes cantidades de datos o trabajes con fuentes externas veloces.
 
-**🔗 Encadenamiento de operaciones**
+**🔗 Encadenamiento de operaciones**  
 
 Una de las ventajas más poderosas del paradigma reactivo es la capacidad de encadenar operaciones, como si crearas una receta paso a paso.
 
@@ -354,8 +354,8 @@ Flux.just("Ana", "Luis", "Mario")
 [Productor] → (map) → (filter) → (flatMap) → (limitRate) → [Consumidor]
 ```
 
-Cada operador es un eslabón en la cadena.
-Puedes insertar control de flujo, transformaciones, o ramificar flujos si lo necesitas.
+Cada operador es un eslabón en la cadena.  
+Puedes insertar control de flujo, transformaciones, o ramificar flujos si lo necesitas.  
 
 
 **Resumen...**
@@ -410,7 +410,7 @@ Y en lugar de dejar que eso te abrume, ahora sabes cómo dominar ese flujo usand
 La programación reactiva no es solo una herramienta técnica: es una forma de pensar.
 Se trata de reaccionar a los cambios, adaptarse a las cargas y mantener tu aplicación fluida, viva y lista para responder en cualquier momento.
 
-**🔥 Tip final**
+**🔥 Tip final**  
 La próxima vez que pienses en colecciones finitas o en procesos bloqueantes, pregúntate:
 
 > *¿Y si los datos nunca se detuvieran? ¿Estoy listo para procesarlos mientras fluyen?*
