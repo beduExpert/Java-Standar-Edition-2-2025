@@ -144,11 +144,10 @@ Este proyecto implementa una **estructura por capas** en Java:
 - `service/` → Contiene la lógica de negocio.
 - `model/` → Define las entidades o modelos de datos.
 
-
 ## 🚀 ¿Cómo ejecutar?
 
 1. Asegúrate de tener **JDK 17** instalado.
-2. Desde la raíz del proyecto, **compila todos los archivos Java**:
+2. Compila el proyecto:
 
 ```bash
 javac model/*.java service/*.java controller/*.java Main.java
@@ -160,7 +159,6 @@ javac model/*.java service/*.java controller/*.java Main.java
 java Main
 ```
 ```
-
 
 ---
 
