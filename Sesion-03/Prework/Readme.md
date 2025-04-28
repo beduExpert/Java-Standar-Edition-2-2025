@@ -13,7 +13,7 @@
 
 ¡Hola! 👋 Prepárate para conocer una forma diferente (y muy útil) de programar en Java: la **programación funcional**.
 
-¿Sabías que escribir menos código puede ser más eficiente y claro?
+¿Sabías que escribir menos código puede ser más eficiente y claro?  
 En esta sesión descubrirás cómo **las funciones puras, las lambdas y los Streams** pueden ayudarte a escribir código más limpio, menos propenso a errores y mucho más expresivo.
 
 Aunque al principio puede sonar raro, verás que aplicar este estilo **hace tu vida como desarrollador/a mucho más sencilla**. Aquí aprenderás a transformar listas, evitar nulls molestos, y encadenar operaciones como si fueran recetas de cocina.
@@ -122,8 +122,8 @@ int incrementar() {
 
 Si respondes sí a todas, ¡es pura!
 
-**🔹 Lambdas y referencias a métodos**
-Las lambdas son funciones compactas que puedes pasar como argumento. Referencia a métodos permite pasar una función ya existente.
+**🔹 Lambdas y referencias a métodos**  
+Las lambdas son funciones compactas que puedes pasar como argumento. Referencia a métodos permite pasar una función ya existente.  
 
 🧪 Ejemplo con lambda
 
