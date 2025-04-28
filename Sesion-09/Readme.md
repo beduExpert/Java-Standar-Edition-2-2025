@@ -24,17 +24,23 @@ Durante la sesión, utilizaremos las siguientes clases y componentes:
 
 ---
 
-## 🧭 Paso 1: Crear el proyecto en tu entorno Java
+## 🧭 Creación del proyecto con Spring Initializr
 
-1. Crea un proyecto nuevo llamado `MicroservicioPrestamos`.
-2. Usa Spring Initializr para configurar las dependencias básicas:
-    - Spring Web
-    - Spring Data JPA
-    - H2 Database
-    - Spring Boot DevTools
-    - Spring Boot Test
-
-3. Crea el siguiente paquete base: `com.prestamos`.
+1. Ingresa a [https://start.spring.io](https://start.spring.io/)
+2. Configura lo siguiente:
+   - **Project**: Maven
+   - **Language**: Java
+   - **Spring Boot**: 3.2.x (última versión estable)
+   - **Group**: `com.prestamos`
+   - **Artifact**: `MicroservicioPrestamos`
+   - **Java**: 17
+3. Agrega estas dependencias:
+   - Spring Web
+   - Spring Data JPA
+   - H2 Database
+   - Spring Boot DevTools
+   - Spring Boot Test
+4. Haz clic en "Generate" y abre el proyecto en IntelliJ IDEA.
 
 ---
 
