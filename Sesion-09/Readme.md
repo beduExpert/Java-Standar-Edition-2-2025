@@ -1,4 +1,4 @@
-🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 09**](../Readme.md) ➡️ / 📝 `Sesión 09: Desarrollo del microservicio de préstamos personales`
+🏠 [**Inicio**](../Readme.md) ➡️ / 📖 [**Sesión 09**](../Readme.md) ➡️ / 📝 `Sesión 09: Desarrollo del microservicio de préstamos personales`
 
 ---
 
@@ -91,70 +91,37 @@ Aquí aplicamos:
 ```java
 package com.prestamos.model;
 
-// Importamos las anotaciones necesarias para JPA
 import jakarta.persistence.*;
 
-// Indicamos que esta clase es una "Entidad" de base de datos (tabla)
 @Entity
 public class Prestamo {
 
-    // Definimos la clave primaria (ID) del préstamo y especificamos que se genera automáticamente
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Campo para almacenar el nombre del cliente que solicita el préstamo
     private String cliente;
-
-    // Campo para el monto solicitado en el préstamo
     private double monto;
 
-    // Campo para almacenar el estado actual del préstamo (PENDIENTE, APROBADO, RECHAZADO)
-    // Usamos @Enumerated para indicar que guardaremos el nombre del enum como STRING en la base de datos
     @Enumerated(EnumType.STRING)
     private EstadoPrestamo estado;
 
-    // Constructor vacío requerido por JPA para instanciar objetos desde la base de datos
     public Prestamo() {}
 
-    // Constructor que permite crear un préstamo asignando cliente y monto, y deja el estado en PENDIENTE por defecto
     public Prestamo(String cliente, double monto) {
         this.cliente = cliente;
         this.monto = monto;
-        this.estado = EstadoPrestamo.PENDIENTE;  // Estado inicial siempre será PENDIENTE
+        this.estado = EstadoPrestamo.PENDIENTE;
     }
 
-    // Getters y setters (accesores y modificadores) para cada atributo de la clase
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
-
-    public double getMonto() {
-        return monto;
-    }
-
-    public void setMonto(double monto) {
-        this.monto = monto;
-    }
-
-    public EstadoPrestamo getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoPrestamo estado) {
-        this.estado = estado;
-    }
+    public Long getId() { return id; }
+    public String getCliente() { return cliente; }
+    public void setCliente(String cliente) { this.cliente = cliente; }
+    public double getMonto() { return monto; }
+    public void setMonto(double monto) { this.monto = monto; }
+    public EstadoPrestamo getEstado() { return estado; }
+    public void setEstado(EstadoPrestamo estado) { this.estado = estado; }
 }
-
 ```
 ---
 
@@ -408,16 +375,15 @@ class PrestamoServiceTest {
         Prestamo prestamo = service.crearPrestamo("Juan", 3000);
 
         /**
-         * Verificamos que el método save() del repositorio haya sido llamado al menos una vez
+         * Verificamos que el método save() del repositorio haya sido llamado al menos dos veces
          * con el objeto prestamo. Esto asegura que el préstamo fue guardado.
          */
-        verify(mockRepo, times(1)).save(prestamo);
+        verify(mockRepo, times(2)).save(any(Prestamo.class));
 
         // NOTA: Esta prueba no valida la lógica de evaluación asíncrona, solo la creación inicial.
         // Se podría expandir con pruebas más específicas para la evaluación si fuera necesario.
     }
 }
-
 ```
 **🔎 ¿Que estamos haciendo?**
 

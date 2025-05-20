@@ -87,12 +87,12 @@ Ejemplo:
 
 **🤜🤛 Stream API tradicional vs Programación reactiva**
 
-| Característica	     | Stream API tradicional                                | Programación reactiva                           |
+| Característica         | Stream API tradicional                                | Programación reactiva                           |
 |------------------------|-------------------------------------------------------|-------------------------------------------------|
 | Tipo de datos          | Colecciones finitas (listas, sets)                    | Flujos infinitos o continuos (eventos, sensores)|
-| Ejecución	             | Sincrónica                                            | Asíncrona y no bloqueante                       |
-| Control de velocidad	 | No controla si llegan muchos datos (fluye sin límites)| Usa backpressure para regular el flujo          |
-| Uso típico	         | Procesar datos ya existentes (ej. lista de productos) | Procesar datos que siguen llegando (ej. usuarios conectados) |
+| Ejecución              | Sincrónica                                            | Asíncrona y no bloqueante                       |
+| Control de velocidad   | No controla si llegan muchos datos (fluye sin límites)| Usa backpressure para regular el flujo          |
+| Uso típico             | Procesar datos ya existentes (ej. lista de productos) | Procesar datos que siguen llegando (ej. usuarios conectados) |
 
 **🧠 Patrones reactivamente dirigidos (Reactive Manifesto)**
 

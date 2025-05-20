@@ -1,4 +1,4 @@
-🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 10**](../Readme.md) ➡️ / 🧠 `Sesión 10: Repaso integral y Mentorship Final`
+🏠 [**Inicio**](../Readme.md) ➡️ / 📖 [**Sesión 10**](../Readme.md) ➡️ / 🧠 `Sesión 10: Repaso integral y Mentorship Final`
 
 ---
 

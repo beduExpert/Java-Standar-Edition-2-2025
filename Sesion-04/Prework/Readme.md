@@ -153,9 +153,9 @@ La asincronía puede usar hilos, pero no depende solo de ellos. Su objetivo es q
 
 | Situación                             | ¿Qué usar?               |
 |---------------------------------------|--------------------------|
-| Varias tareas independientes a la vez	| Concurrencia (hilos)     |
-| Una tarea tarda pero no debe bloquear	| Asincronía               |
-| Mezcla de ambos casos	                | Concurrencia + asincronía |
+| Varias tareas independientes a la vez | Concurrencia (hilos)     |
+| Una tarea tarda pero no debe bloquear | Asincronía               |
+| Mezcla de ambos casos                 | Concurrencia + asincronía |
 
 **Resumen...**  
 
@@ -221,9 +221,9 @@ tarea
     .thenAccept(System.out::println);                // Lo imprime cuando esté listo
 ```
 
-| Método	     | ¿Qué hace?                                                     |
+| Método         | ¿Qué hace?                                                     |
 |----------------|----------------------------------------------------------------|
-| `thenApply()`	 | Transforma el resultado (y devuelve otro valor).               |
+| `thenApply()`  | Transforma el resultado (y devuelve otro valor).               |
 | `thenAccept()` | Consume el resultado (ejecuta una acción, no devuelve).        |
 | `thenCompose()`| Encadena otra tarea asíncrona basada en el resultado anterior. |
 
@@ -259,11 +259,11 @@ tarea
 
 **🧠 ¿Cuándo usar `CompletableFuture`?**
 
-| Situación	                        | ¿Por qué usarlo?                                       |
+| Situación                         | ¿Por qué usarlo?                                       |
 |-----------------------------------|--------------------------------------------------------|
-| Consulta a APIs que pueden tardar	| Para no bloquear la interfaz o el flujo principal.     |
-| Procesamiento de archivos grandes	| Para permitir que otras tareas sigan mientras termina. |
-| Coordinar múltiples tareas	    | Puedes combinar resultados o manejar dependencias.     |
+| Consulta a APIs que pueden tardar | Para no bloquear la interfaz o el flujo principal.     |
+| Procesamiento de archivos grandes | Para permitir que otras tareas sigan mientras termina. |
+| Coordinar múltiples tareas        | Puedes combinar resultados o manejar dependencias.     |
 
 🔄 Flujo visual de `CompletableFuture`  
 
@@ -381,11 +381,11 @@ consultaServicio.thenAccept(respuesta -> System.out.println("Respuesta recibida:
 
 Usar asincronía es sumamente útil, pero como toda herramienta, hay que saber cuándo y cómo usarla. Aquí algunos principios clave:
 
-| Buenas prácticas	                  | ¿Por qué importa?                                                       |
+| Buenas prácticas                    | ¿Por qué importa?                                                       |
 |-------------------------------------|-------------------------------------------------------------------------|
-| Usa asincronía donde aporte valor	  | No todo necesita ser asíncrono. Úsalo en tareas lentas.                 |
-| Controla el número de tareas	      | Demasiadas tareas pueden saturar los recursos (hilos, memoria).         |
-| Maneja errores y timeouts	          | No asumas que todo saldrá bien. Siempre prevé fallos.                   |
+| Usa asincronía donde aporte valor   | No todo necesita ser asíncrono. Úsalo en tareas lentas.                 |
+| Controla el número de tareas        | Demasiadas tareas pueden saturar los recursos (hilos, memoria).         |
+| Maneja errores y timeouts           | No asumas que todo saldrá bien. Siempre prevé fallos.                   |
 | Coordina resultados si es necesario | Usa thenCombine, allOf, anyOf si varias tareas deben completarse juntas.|
 
 

@@ -1,163 +1,205 @@
-🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 06**](../Readme.md) ➡️ / 📝 `Ejemplo 03: Métodos genéricos en acción`
+🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 06**](../Readme.md) ➡️ / 📝 `Ejemplo 03: Aplicación web con CRUD y JPA`
 
 ## 🎯 Objetivo
 
-🔍 Aplicar **genéricos** y **wildcards** en un contexto **financiero**, diferenciando entre **cuentas bancarias** (ahorro, corriente, inversión) y simulando **transacciones** con validaciones.
+🔍 Construir una aplicación Java web utilizando Spring Boot y JPA que permita exponer operaciones CRUD mediante un API REST, integrando base de datos, servicios y controladores.
 
 ---
 
 ## ⚙️ Requisitos
 
-- JDK 17 o superior  
-- IntelliJ IDEA o cualquier editor compatible con Java  
-- Conocimientos previos de **genéricos** (`List<T>`, wildcards)
+- Proyecto Spring Boot con la entidad `Producto`  
+- IntelliJ IDEA o editor compatible con Spring Boot  
+- [Postman](https://www.postman.com/downloads/) o cualquier cliente REST  
+- Dependencias: Spring Web, Spring Data JPA, H2 Database  
+- Archivo `application.properties` correctamente configurado  
 
 ---
 
-## 🧠 Contexto del ejemplo
+## 🧱 Arquitectura y organización del proyecto
 
-Imagina que trabajas en un **sistema bancario** donde debes:
+¿Has notado que cada vez hay más archivos en nuestro proyecto?  
+Para mantener todo ordenado y escalable, este ejemplo sigue una arquitectura en capas, separando controladores, servicios, repositorios y modelos, con el fin de facilitar la escalabilidad y mantenibilidad del proyecto.
 
-- **Gestionar cuentas** de distintos tipos (**Ahorro**, **Corriente**, **Inversión**).  
-- **Procesar transacciones** financieras como **depósitos** y **retiros**.  
-- Validar operaciones usando **genéricos** y **wildcards** para **flexibilizar** los métodos.
+| Capa         | Ubicación en el proyecto            | Rol |
+|--------------|-------------------------------------|-----|
+| **Modelo**   | `models/`                           | Representa la estructura de datos (`Producto`) |
+| **Controlador** | `controllers/`                   | Expone endpoints que reciben peticiones HTTP |
+| **Servicio** | `services/`                          | Contiene la lógica de negocio entre el controlador y la base de datos |
+| **Repositorio** | `repositories/`                  | Interactúa con la base de datos usando JPA |
+
+> Esta separación **mejora la mantenibilidad, pruebas y escalabilidad** del proyecto.
 
 ---
 
-## 📄 Código base: `GestionFinanciera.java`
+## 📁 Estructura general
+
+```
+src/main/java/com/bedu/inventario/
+├── controllers/
+│   └── ProductoController.java
+├── services/
+│   └── ProductoService.java
+├── repositories/
+│   └── ProductoRepository.java
+├── models/
+│   └── Producto.java
+└── InventarioApplication.java
+```
+
+---
+
+## 🧱 Paso 1: Crear el servicio `ProductoService`
 
 ```java
-import java.util.*;
+import com.bedu.inventario.models.Producto;
+import com.bedu.inventario.repositories.ProductoRepository;
+import org.springframework.stereotype.Service;
 
-public class GestionFinanciera {
+import java.util.List;
 
-    // Superclase Cuenta
-    static abstract class Cuenta {
-        private final String titular;
-        protected double saldo;
+@Service
+public class ProductoService {
 
-        public Cuenta(String titular, double saldoInicial) {
-            this.titular = titular;
-            this.saldo = saldoInicial;
-        }
+    private final ProductoRepository repository;
 
-        public String getTitular() { return titular; }
-        public double getSaldo() { return saldo; }
-
-        public void mostrarEstado() {
-            System.out.println("👤 " + titular + " - Saldo: $" + saldo);
-        }
+    public ProductoService(ProductoRepository repository) {
+        this.repository = repository;
     }
 
-    // Subclases de cuentas
-    static class CuentaAhorro extends Cuenta {
-        public CuentaAhorro(String titular, double saldoInicial) { super(titular, saldoInicial); }
+    public List<Producto> obtenerTodos() {
+        return repository.findAll();
     }
 
-    static class CuentaCorriente extends Cuenta {
-        public CuentaCorriente(String titular, double saldoInicial) { super(titular, saldoInicial); }
-    }
-
-    static class CuentaInversion extends Cuenta {
-        public CuentaInversion(String titular, double saldoInicial) { super(titular, saldoInicial); }
-    }
-
-    // Método genérico para mostrar cuentas (wildcard extends)
-    public static void mostrarCuentas(List<? extends Cuenta> cuentas) {
-        System.out.println("📋 Estado de cuentas:");
-        cuentas.forEach(Cuenta::mostrarEstado);
-    }
-
-    // Método para procesar depósitos (wildcard super)
-    public static void procesarDepositos(List<? super CuentaCorriente> cuentas, double cantidad) {
-        System.out.println("\n💰 Procesando depósitos...");
-        cuentas.forEach(c -> {
-            if (c instanceof CuentaCorriente) {
-                CuentaCorriente cc = (CuentaCorriente) c;
-                cc.saldo += cantidad;
-                System.out.println("✅ Depósito de $" + cantidad + " en cuenta de " + cc.getTitular());
-            }
-        });
-    }
-
-    public static void main(String[] args) {
-        List<CuentaAhorro> ahorros = List.of(
-            new CuentaAhorro("Ana", 1500.0),
-            new CuentaAhorro("Carlos", 2200.0)
-        );
-
-        List<CuentaCorriente> corrientes = List.of(
-            new CuentaCorriente("Luis", 1200.0),
-            new CuentaCorriente("Sofía", 1800.0)
-        );
-
-        List<CuentaInversion> inversiones = List.of(
-            new CuentaInversion("Marta", 5000.0)
-        );
-
-        // 1️⃣ Mostrar cada tipo de cuenta
-        mostrarCuentas(ahorros);              // Impresión 1-2
-        mostrarCuentas(corrientes);           // Impresión 3-4
-        mostrarCuentas(inversiones);          // Impresión 5
-
-        // 2️⃣ Procesar depósitos en cuentas corrientes
-        procesarDepositos(corrientes, 500.0); // Impresión 6-7
-
-        // 3️⃣ Mostrar cuentas corrientes actualizadas
-        mostrarCuentas(corrientes);           // Impresión 8-9
-
-        System.out.println("\n🔍 Fin de la simulación financiera."); // Impresión 10
+    public Producto guardar(Producto producto) {
+        return repository.save(producto);
     }
 }
 ```
 
-> 💡 **Nota**: Es posible **separar este código en diferentes archivos**, organizando cada clase (como `Cuenta`, `CuentaAhorro`, `CuentaCorriente`, etc.) en su propio archivo para mejorar la **escalabilidad y mantenibilidad** del proyecto.  
-> Sin embargo, en esta ocasión decidimos **mantener todo en un solo archivo** para **facilitar la comprensión** del ejemplo y enfocarnos en el uso de **métodos genéricos** y **wildcards** sin distraernos con detalles de estructura de carpetas o configuración adicional.  
+---
+
+## 🌐 Paso 2: Crear el controlador `ProductoController`
+
+```java
+import com.bedu.inventario.models.Producto;
+import com.bedu.inventario.services.ProductoService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/productos")
+public class ProductoController {
+
+    private final ProductoService servicio;
+
+    public ProductoController(ProductoService servicio) {
+        this.servicio = servicio;
+    }
+
+    @GetMapping
+    public List<Producto> obtenerProductos() {
+        return servicio.obtenerTodos();
+    }
+
+    @PostMapping
+    public Producto crearProducto(@RequestBody Producto producto) {
+        return servicio.guardar(producto);
+    }
+}
+```
 
 ---
 
-## 🧪 Resultado esperado
+## ✅ Paso 3: implementación para `InventarioApplication.java`
 
-```
-📋 Estado de cuentas:
-👤 Ana - Saldo: $1500.0
-👤 Carlos - Saldo: $2200.0
-📋 Estado de cuentas:
-👤 Luis - Saldo: $1200.0
-👤 Sofía - Saldo: $1800.0
-📋 Estado de cuentas:
-👤 Marta - Saldo: $5000.0
+```java
+import com.bedu.inventario.models.Producto;
+import com.bedu.inventario.repositories.ProductoRepository;
+import org.springframework.boot.*;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
-💰 Procesando depósitos...
-✅ Depósito de $500.0 en cuenta de Luis
-✅ Depósito de $500.0 en cuenta de Sofía
+@SpringBootApplication
+public class InventarioApplication {
 
-📋 Estado de cuentas:
-👤 Luis - Saldo: $1700.0
-👤 Sofía - Saldo: $2300.0
+    public static void main(String[] args) {
+        SpringApplication.run(InventarioApplication.class, args);
+    }
 
-🔍 Fin de la simulación financiera.
+    @Bean
+    public CommandLineRunner initData(ProductoRepository productoRepo) {
+        return args -> {
+            productoRepo.save(new Producto("Laptop Lenovo", "AMD Ryzen 7, 16GB RAM", 18500.0));
+            productoRepo.save(new Producto("Mouse inalámbrico", "Marca Logitech, sensor óptico", 350.0));
+            productoRepo.save(new Producto("Monitor LG", "27 pulgadas, Full HD", 4300.0));
+
+            System.out.println("📦 Productos cargados:");
+            productoRepo.findAll().forEach(System.out::println);
+        };
+    }
+}
 ```
 
 ---
 
-## 🔍 Conceptos clave utilizados
+## 🧪 Pruebas con Postman (paso a paso)
 
-| Concepto          | Descripción |
-|-------------------|-------------|
-| `List<? extends T>` | Permite **leer** objetos de tipo `T` o subtipos (para mostrar cuentas). |
-| `List<? super T>`   | Permite **modificar o insertar** objetos de tipo `T` o supertipos (para depósitos). |
-| Genéricos y subclases | Aplicado en **cuentas bancarias** para **flexibilizar métodos** según el contexto. |
+### 🔹 1. Iniciar la aplicación
+
+Asegúrate de que la app esté corriendo en `http://localhost:8080`.
+
+---
+
+### 🔹 2. Obtener productos (GET)
+
+- **Método:** `GET`  
+- **URL:** `http://localhost:8080/api/productos`  
+- **Resultado esperado:** Lista de productos
+
+---
+
+### 🔹 3. Crear un producto (POST)
+
+- **Método:** `POST`  
+- **URL:** `http://localhost:8080/api/productos`  
+- **Headers:**  
+  - `Content-Type`: `application/json`  
+- **Body (raw, JSON):**
+
+```json
+{
+  "nombre": "Smartwatch Xiaomi",
+  "descripcion": "Pantalla AMOLED, resistente al agua",
+  "precio": 1800.0
+}
+```
+
+---
+
+## 🧠 Notas
+
+- Este ejemplo marca el inicio del desarrollo de una **API REST completa** con Spring Boot.
+- El uso de `@RestController` permite exponer endpoints sin configuración adicional.
+- Esta versión está intencionadamente simplificada para enfocarse en CRUD sin relaciones.
+- Para versiones más complejas (con relaciones o lógica adicional), puedes usar DTOs, validaciones y controladores separados por recurso.
 
 ---
 
 ## 📝 En resumen
 
-- **Wildcards (`?`)** ayudan a **flexibilizar operaciones** sobre listas de **diferentes tipos relacionados**.
-- **`extends`** → Usado para **leer** (ej. mostrar saldos de cualquier cuenta).
-- **`super`** → Usado para **modificar** (ej. depositar en cuentas corrientes).
-- Este patrón es común en **finanzas**, pero aplicable a **otros dominios** como logística, medicina, ingeniería, etc.
+- Implementamos una **API REST básica** en Java usando **Spring Boot** y **JPA**, siguiendo una **arquitectura en capas** (controladores, servicios, repositorios, modelos).
+- **`ProductoController`** expone los **endpoints HTTP** (`GET`, `POST`) para interactuar con los datos.
+- **`ProductoService`** encapsula la **lógica de negocio**, mientras que **`ProductoRepository`** maneja la **persistencia** mediante **Spring Data JPA**.
+- Probamos la API con **Postman**, simulando la creación y consulta de productos en la base de datos **H2 embebida**.
+- Esta estructura permite **extender fácilmente la aplicación**, añadiendo nuevas funcionalidades, relaciones entre entidades o integraciones externas.
 
+---
+
+📘 Recursos útiles:  
+🔗 [Spring Boot REST API](https://spring.io/guides/gs/rest-service)  
+🔗 [Postman – Guía oficial](https://learning.postman.com/docs/getting-started/introduction/)
 
 ---
 

@@ -201,9 +201,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RrhhapiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RrhhapiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RrhhapiApplication.class, args);
+    }
 }
 ```
 

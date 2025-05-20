@@ -1,94 +1,78 @@
-🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 06**](../Readme.md) ➡️ / ⚡ `Reto 02: Gestión de materiales de curso en una plataforma educativa`
+🏠 [**Inicio**](../../Readme.md) ➡️ / 📖 [**Sesión 06**](../Readme.md) ➡️ / ⚡ `Reto 02: Productos por marca en una tienda en línea`
 
 ## 🎯 Objetivo
 
-⚒️ Utilizar **genéricos**, **wildcards** (`?`, `extends`, `super`) y **restricciones de tipo** para gestionar diferentes **materiales de un curso** (videos, artículos, ejercicios) en una **plataforma educativa**, aplicando **filtros** y **acciones específicas** por tipo de material.
-
----
-
-## 🧠 Contexto del reto
-
-En una **plataforma educativa online**, los cursos están compuestos por diferentes tipos de **materiales**:
-
-- 🎥 **Videos**  
-- 📄 **Artículos**  
-- 📝 **Ejercicios**
-
-El sistema debe:
-
-1. **Mostrar todos los materiales disponibles** de un curso.  
-2. **Filtrar solo los videos** para contar su duración total.  
-3. **Actualizar** los materiales de tipo **ejercicio**, marcándolos como **revisados**.
+⚒️ Reforzar el uso de relaciones en JPA mediante una entidad nueva llamada `Marca`, relacionada con `Producto`, simulando un modelo básico de una tienda en línea. Se trabajará con relaciones `@ManyToOne`, ideal para representar que varios productos pertenecen a una marca.
 
 ---
 
 ## 📝 Instrucciones
 
-1. Define una **clase abstracta** `MaterialCurso` con:
-
-   - `titulo` (String)  
-   - `autor` (String)  
-   - Método abstracto `mostrarDetalle()`.
-
-2. Crea las subclases:
-
-   - `Video` (agrega `duracion` en minutos).  
-   - `Articulo` (agrega `palabras` como conteo).  
-   - `Ejercicio` (agrega `revisado` como booleano).
-
-3. Implementa los siguientes métodos genéricos:
-
-   - `mostrarMateriales(List<? extends MaterialCurso> lista)`  
-   (Muestra el detalle de todos los materiales).
-
-   - `contarDuracionVideos(List<? extends Video> lista)`  
-   (Suma y muestra la duración total de los videos).
-
-   - `marcarEjerciciosRevisados(List<? super Ejercicio> lista)`  
-   (Actualiza el estado de los ejercicios a `revisado = true` y muestra un mensaje por cada uno).
-
-4. En el `main`, crea una lista con al menos **2 videos**, **2 artículos** y **2 ejercicios**, y prueba los métodos anteriores.
+📌 **Importante:**  
+Este reto se realiza **en el mismo proyecto del Ejemplo 02**, reutilizando la entidad `Producto` y agregando una nueva entidad `Marca`.
 
 ---
 
-## 💪 Desafío adicional (opcional)
+### 🛠️ Tareas a realizar:
 
-- Implementa un método genérico que **filtre materiales** por **autor** usando `Predicate<MaterialCurso>`.
+1. ✍️ Crea una nueva clase `Marca` con los siguientes atributos:
+   - `id` (clave primaria, autogenerada)
+   - `nombre` (nombre de la marca)
+
+2. 🔁 Relaciona `Producto` con `Marca` usando `@ManyToOne`:
+
+    ```java
+    @ManyToOne
+    @JoinColumn(name = "marca_id")
+    private Marca marca;
+    ```
+
+3. 🔄 Agrega en `Producto`:
+   - Constructor con parámetro `Marca`
+   - Getter para `getMarca()`
+
+4. 🧪 Desde `CommandLineRunner`, realiza lo siguiente:
+   - Crea al menos **2 marcas**
+   - Asocia al menos **2 productos a cada marca**
+   - Muestra los productos agrupados por marca:
+
+   ```java
+   System.out.println("📚 Productos por marca:");
+   marcaRepo.findAll().forEach(marca -> {
+      System.out.println("🏷️ " + marca.getNombre() + ":");
+      productoRepo.findAll().stream()
+         .filter(p -> p.getMarca().getId().equals(marca.getId()))
+         .forEach(p -> System.out.println("   - " + p.getNombre()));
+   });
+   ```
+
+5. 🧾 Asegúrate de crear un `MarcaRepository` que extienda `JpaRepository`.
+
+6. 🧾 Muestra la salida en consola con `System.out.println()`
+
+
+   Al ejecutar el programa verás una salida similar a:
+
+   ```
+   📚 Productos por marca:
+   🏷️ Apple:
+      - iPhone 15
+      - iPad Pro
+   🏷️ Samsung:
+      - Galaxy S23
+      - Smart TV
+   ```
 
 ---
 
-## 💡 Ejemplo de salida esperada
-
-```
-📚 Materiales del curso:
-🎥 Video: Introducción a Java - Autor: Mario - Duración: 15 min
-🎥 Video: POO en Java - Autor: Carlos - Duración: 20 min
-📄 Artículo: Historia de Java - Autor: Ana - Palabras: 1200
-📄 Artículo: Tipos de datos - Autor: Luis - Palabras: 800
-📝 Ejercicio: Variables y tipos - Autor: Luis - Revisado: false
-📝 Ejercicio: Condicionales - Autor: Mario - Revisado: false
-
-🎥 Duración total de videos: 35 minutos
-
-✅ Ejercicio 'Variables y tipos' marcado como revisado.
-✅ Ejercicio 'Condicionales' marcado como revisado.
-
-🔍 Filtrando materiales por autor:
-🎥 Video: Introducción a Java - Autor: Mario - Duración: 15 min
-📝 Ejercicio: Condicionales - Autor: Mario - Revisado: true
-```
+📘 Recursos útiles:  
+🔗 [Spring Data JPA – Query Methods](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods)  
+🔗 [Relaciones JPA – Baeldung](https://www.baeldung.com/jpa-joincolumn-vs-mappedby)
 
 ---
 
-📘 **Recursos útiles**:
-
-- 🔗 [Wildcards en Java – Oracle](https://docs.oracle.com/javase/tutorial/java/generics/wildcards.html)  
-- 🔗 [Java Predicate – Baeldung](https://www.baeldung.com/java-predicate-chain)
+🏆 Si logras ver productos agrupados correctamente por marca en la consola, ¡reto completado con éxito!
 
 ---
 
-🏆 Si logras **mostrar**, **filtrar** y **actualizar** los materiales correctamente usando **genéricos** y **wildcards**, ¡reto completado con éxito!
-
----
-
-⬅️ [**Anterior**](../Reto-02/Readme.md) | [**Siguiente**](../Ejemplo-03/Readme.md)➡️
+⬅️ [**Anterior**](../Ejemplo-02/Readme.md) | [**Siguiente**](../Ejemplo-03/Readme.md)➡️  

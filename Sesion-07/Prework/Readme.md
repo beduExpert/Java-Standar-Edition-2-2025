@@ -79,23 +79,23 @@ Lo importante es que cada microservicio vive por su cuenta, como una tienda en u
 Pensemos en una tienda en línea:
 
 
-| Funcionalidad	| Enfoque Monolítico	| Enfoque Microservicios |
+| Funcionalidad | Enfoque Monolítico       | Enfoque Microservicios |
 |------------------------------------------|------------------------|--------|
-| Carrito de compras	| Parte del mismo sistema centralizado	| Es un servicio separado que gestiona los carritos |
-| Módulo de pagos	| Integrado en el código base	| Es un servicio independiente que procesa pagos |
-|  Inventario	| Compartido con el resto del sistema	| Tiene su propio servicio y base de datos |
+| Carrito de compras    | Parte del mismo sistema centralizado  | Es un servicio separado que gestiona los carritos |
+| Módulo de pagos   | Integrado en el código base   | Es un servicio independiente que procesa pagos |
+|  Inventario   | Compartido con el resto del sistema   | Tiene su propio servicio y base de datos |
 
 🛡️ Con microservicios, cada módulo puede actualizarse o escalarse por separado. Si el módulo de pagos necesita manejar más tráfico (Ej: en el Buen Fin), puedes escalarlo sin tocar los demás servicios.
 
 **🤜🤛 Diferencias con la arquitectura monolítica**
 
-| Aspecto	| Monolito	| Microservicios |
+| Aspecto   | Monolito  | Microservicios |
 |------------------------------------------|------------------------|--------|
-| Despliegue	| Se despliega toda la aplicación junta	| Se despliegan los servicios que cambian |
-| Escalabilidad	| Escalas todo el sistema completo	| Escalas solo el servicio que lo necesita |
-| Flexibilidad tecnológica	| Una sola tecnología para todo	| Puedes usar tecnologías distintas en cada servicio |
-| Dependencias internas	| Fuertemente acoplado (todo está conectado)	| Débilmente acoplado (los servicios se conectan por red) |
-| Impacto de fallas	| Una falla afecta todo el sistema	| Una falla solo afecta al servicio específico |
+| Despliegue    | Se despliega toda la aplicación junta | Se despliegan los servicios que cambian |
+| Escalabilidad | Escalas todo el sistema completo  | Escalas solo el servicio que lo necesita |
+| Flexibilidad tecnológica  | Una sola tecnología para todo | Puedes usar tecnologías distintas en cada servicio |
+| Dependencias internas | Fuertemente acoplado (todo está conectado)    | Débilmente acoplado (los servicios se conectan por red) |
+| Impacto de fallas | Una falla afecta todo el sistema  | Una falla solo afecta al servicio específico |
 
 💡 Ejemplo 
 
@@ -216,12 +216,12 @@ Es como tener pequeños food trucks en lugar de un gran restaurante:
 
 **🤜🤛 Comparación con otras tecnologías (para microservicios)**
 
-| Tecnología	    | Tipo de lenguaje	| ¿Cómo ayuda a crear microservicios?                                       |
+| Tecnología        | Tipo de lenguaje  | ¿Cómo ayuda a crear microservicios?                                       |
 |-------------------|-------------------|---------------------------------------------------------------------------|
-| Spring Boot	    | Java	            | Configuración automática, servidor embebido, ideal para APIs REST en Java.|
-| Node.js (Express)	| JavaScript	    | Ligero, ideal para microservicios rápidos en JS.                          |
-| Flask	            | Python	        | Simple para APIs pequeñas en Python.                                      |
-| Django	        | Python	        | Más robusto, pero puede ser pesado para microservicios.                   |
+| Spring Boot       | Java              | Configuración automática, servidor embebido, ideal para APIs REST en Java.|
+| Node.js (Express) | JavaScript        | Ligero, ideal para microservicios rápidos en JS.                          |
+| Flask             | Python            | Simple para APIs pequeñas en Python.                                      |
+| Django            | Python            | Más robusto, pero puede ser pesado para microservicios.                   |
 
 💥 Diferencia clave  
 Spring Boot es la opción ideal para Java, especialmente si vienes del mundo empresarial o necesitas robustez.

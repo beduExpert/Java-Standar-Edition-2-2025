@@ -184,13 +184,13 @@ El núcleo del sistema será la clase `Prestamo`, que representa la solicitud de
 A continuación, te mostramos los componentes clave del sistema y su función dentro del proyecto:
 
 
-| 🧩 Componente	      | 📝 Descripción |
+| 🧩 Componente       | 📝 Descripción |
 |---------------------|-----------------------------------------------------------------------------------------------|
 | `Prestamo` (modelo) | Representa un préstamo personal (cliente, monto, estado).|
 | `PrestamoRepository`| Interfaz JPA para interactuar con la base de datos H2.|
 | `PrestamoService`   | Lógica para crear préstamos, evaluarlos (de forma asíncrona) y cambiar su estado.|
 | `PrestamoController`| Exposición de endpoints REST para crear, consultar y filtrar préstamos.|
-| `SLF4J`             |	Registro de logs en contexto durante la evaluación y los cambios de estado.|
+| `SLF4J`             | Registro de logs en contexto durante la evaluación y los cambios de estado.|
 | `JUnit + Mockito`   | Pruebas unitarias para validar la lógica del servicio y garantizar su correcto funcionamiento.|
 
 
