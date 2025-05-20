@@ -7,71 +7,52 @@ Reflexionar, preguntar y reforzar conocimientos clave adquiridos en el módulo *
 
 ---
 
-## 🧩 Sesión 01: Gestión de bases de datos
+## 🧰 Sesión 01: Clases genéricas
 
 ✅ **Recordatorio rápido**  
-Conectamos Java con bases de datos usando JPA y Hibernate, automatizando la persistencia de datos mediante entidades, repositorios, servicios y controladores en Spring Boot.
+Aprendiste a crear clases y métodos genéricos que pueden trabajar con diferentes tipos de datos, manteniendo la seguridad en tiempo de compilación y evitando conversiones innecesarias.
 
 💬 **Preguntas detonadoras**
-- ¿Qué ventaja ofrece usar JPA frente a escribir SQL manualmente?
-- ¿Por qué es importante separar la lógica en capas (controlador, servicio, repositorio)?
-- ¿Qué datos básicos necesitas configurar en `application.properties` para conectar tu aplicación a una base de datos?
+- ¿Qué ventaja ofrece una clase genérica frente a una clase específica de un tipo?
+- ¿Qué representa el símbolo `<T>` en una definición genérica?
+- ¿Cuándo es útil usar restricciones como `<T extends Number>` en genéricos?
 
 ⚙️ **Ejercicio**
 
-Define una entidad Java llamada `Producto` que represente una tabla con los campos `id`, `nombre` y `precio`. Asegúrate de usar las anotaciones de JPA correctamente para que esta clase pueda mapearse a una base de datos.
+Crea una clase genérica llamada `Caja` que pueda almacenar un objeto de cualquier tipo y permita obtenerlo.
 
 ```java
-package com.miempresa.model;
+package com.miempresa.clasesgenericas;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+// Definimos una clase genérica llamada Caja
+public class Caja<T> {
 
-@Entity  // Marca esta clase como una entidad de base de datos
-public class Producto {
+    // Variable para almacenar un objeto de tipo T
+    private T contenido;
 
-    @Id  // Define el campo como clave primaria
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incrementable
-    private Long id;
-
-    private String nombre;
-    private double precio;
-
-    // Constructor vacío necesario para JPA
-    public Producto() {}
-
-    // Constructor con atributos
-    public Producto(String nombre, double precio) {
-        this.nombre = nombre;
-        this.precio = precio;
+    // Método para guardar un objeto en la caja
+    public void guardar(T contenido) {
+        this.contenido = contenido;
     }
 
-    // Getters y setters
-    public Long getId() {
-        return id;
+    // Método para obtener el contenido de la caja
+    public T obtener() {
+        return contenido;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
+    public static void main(String[] args) {
+        // Creamos una caja que guarda un String
+        Caja<String> cajaDeTexto = new Caja<>();
+        cajaDeTexto.guardar("¡Hola, mundo!");
+        System.out.println(cajaDeTexto.obtener());
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+        // Creamos una caja que guarda un número
+        Caja<Integer> cajaDeNumero = new Caja<>();
+        cajaDeNumero.guardar(123);
+        System.out.println(cajaDeNumero.obtener());
     }
 }
-
 ```
-
 ---
 
 ## 🔄  Sesión 02: Multihilos y procesos concurrentes
@@ -238,49 +219,66 @@ public class MonoEjemplo {
 
 ---
 
-## 🧰 Sesión 06: Clases genéricas
+## 🧩 Sesión 06: Gestión de bases de datos
 
 ✅ **Recordatorio rápido**  
-Aprendiste a crear clases y métodos genéricos que pueden trabajar con diferentes tipos de datos, manteniendo la seguridad en tiempo de compilación y evitando conversiones innecesarias.
+Conectamos Java con bases de datos usando JPA y Hibernate, automatizando la persistencia de datos mediante entidades, repositorios, servicios y controladores en Spring Boot.
 
 💬 **Preguntas detonadoras**
-- ¿Qué ventaja ofrece una clase genérica frente a una clase específica de un tipo?
-- ¿Qué representa el símbolo `<T>` en una definición genérica?
-- ¿Cuándo es útil usar restricciones como `<T extends Number>` en genéricos?
+- ¿Qué ventaja ofrece usar JPA frente a escribir SQL manualmente?
+- ¿Por qué es importante separar la lógica en capas (controlador, servicio, repositorio)?
+- ¿Qué datos básicos necesitas configurar en `application.properties` para conectar tu aplicación a una base de datos?
 
 ⚙️ **Ejercicio**
 
-Crea una clase genérica llamada `Caja` que pueda almacenar un objeto de cualquier tipo y permita obtenerlo.
+Define una entidad Java llamada `Producto` que represente una tabla con los campos `id`, `nombre` y `precio`. Asegúrate de usar las anotaciones de JPA correctamente para que esta clase pueda mapearse a una base de datos.
 
 ```java
-package com.miempresa.clasesgenericas;
+package com.miempresa.model;
 
-// Definimos una clase genérica llamada Caja
-public class Caja<T> {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
-    // Variable para almacenar un objeto de tipo T
-    private T contenido;
+@Entity  // Marca esta clase como una entidad de base de datos
+public class Producto {
 
-    // Método para guardar un objeto en la caja
-    public void guardar(T contenido) {
-        this.contenido = contenido;
+    @Id  // Define el campo como clave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incrementable
+    private Long id;
+
+    private String nombre;
+    private double precio;
+
+    // Constructor vacío necesario para JPA
+    public Producto() {}
+
+    // Constructor con atributos
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre;
+        this.precio = precio;
     }
 
-    // Método para obtener el contenido de la caja
-    public T obtener() {
-        return contenido;
+    // Getters y setters
+    public Long getId() {
+        return id;
     }
 
-    public static void main(String[] args) {
-        // Creamos una caja que guarda un String
-        Caja<String> cajaDeTexto = new Caja<>();
-        cajaDeTexto.guardar("¡Hola, mundo!");
-        System.out.println(cajaDeTexto.obtener());
+    public String getNombre() {
+        return nombre;
+    }
 
-        // Creamos una caja que guarda un número
-        Caja<Integer> cajaDeNumero = new Caja<>();
-        cajaDeNumero.guardar(123);
-        System.out.println(cajaDeNumero.obtener());
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }
 ```
